@@ -1,4 +1,4 @@
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NER-Landslide AI | Real-Time Disaster Intelligence</title>
@@ -444,3 +444,1152 @@ body::before{filter:blur(22px);animation:auroraMove 20s ease-in-out infinite alt
 </style>
 
 </head>
+<body class="rain-bg">
+<aside class="sidebar">
+ <div class="brand"><div class="brand-row">
+  <div class="brand-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+  <div><h2>NER-LANDSLIDE AI</h2><p>DISASTER INTELLIGENCE PLATFORM</p></div>
+ </div></div>
+
+ <nav class="nav">
+  <div class="nav-label">COMMAND CENTER</div>
+  <a class="active" href="#dashboard"><i class="fa-solid fa-gauge-high"></i><span>Dashboard</span></a>
+  <a href="#risk-map"><i class="fa-solid fa-map-location-dot"></i><span>Live Risk Map</span></a>
+  <a href="#risk-engine"><i class="fa-solid fa-brain"></i><span>AI Risk Engine</span></a>
+  <a href="#weather"><i class="fa-solid fa-cloud-sun-rain"></i><span>Live Weather</span></a>
+  <div class="nav-label">MONITORING</div>
+  <a href="#sensors"><i class="fa-solid fa-microchip"></i><span>IoT Telemetry</span></a>
+  <a href="#region"><i class="fa-solid fa-location-dot"></i><span>Regional Monitoring</span></a>
+  <a href="#satellite"><i class="fa-solid fa-satellite"></i><span>Satellite &amp; GIS</span></a>
+  <div class="nav-label">RESPONSE</div>
+  <a href="#alerts"><i class="fa-solid fa-triangle-exclamation"></i><span>Early Warnings</span></a>
+  <a href="#response"><i class="fa-solid fa-route"></i><span>Response Planning</span></a>
+  <a href="#contacts"><i class="fa-solid fa-phone-volume"></i><span>Emergency Contacts</span></a>
+  <div class="nav-label">ANALYTICS</div>
+  <a href="#history"><i class="fa-solid fa-clock-rotate-left"></i><span>Incident History</span></a>
+  <a href="#simulator"><i class="fa-solid fa-sliders"></i><span>Risk Simulator</span></a>
+  <a href="#architecture"><i class="fa-solid fa-diagram-project"></i><span>Architecture</span></a>
+  <div class="nav-divider"></div>
+  <div class="nav-label">OPERATIONS &amp; RESPONSE</div>
+  <a href="#operations"><i class="fa-solid fa-command"></i><span>Operations Board</span></a>
+  <a href="#infrastructure"><i class="fa-solid fa-road"></i><span>Infrastructure Risk</span></a>
+  <a href="#population-risk"><i class="fa-solid fa-people-roof"></i><span>Population Risk</span></a>
+  <a href="#relief"><i class="fa-solid fa-house-chimney-medical"></i><span>Relief Centers</span></a>
+  <a href="#incidents-v2"><i class="fa-solid fa-clipboard-list"></i><span>Incident Center</span></a>
+  <a href="#alerts-v2"><i class="fa-solid fa-bell-concierge"></i><span>Warning Workflow</span></a>
+  <a href="#analytics-v2"><i class="fa-solid fa-chart-line"></i><span>Historical Analytics</span></a>
+  <a href="#system-v2"><i class="fa-solid fa-server"></i><span>System Health</span></a>
+  <a href="#live-radar-v2"><i class="fa-solid fa-tower-broadcast"></i><span>Hazard Radar</span></a>
+  <a href="#ai-action-planner"><i class="fa-solid fa-wand-magic-sparkles"></i><span>AI Action Planner</span></a>
+ </nav>
+
+ <div class="system"><div class="status-box"><span class="pulse-dot"></span><span id="sideStatus">Live weather API connected</span></div></div>
+</aside>
+
+<main class="main">
+<header class="header">
+ <div><h1>AI Landslide Risk Command Center</h1><p>North-Eastern Region of India • weather intelligence • GIS monitoring • early warning</p></div>
+ <div class="header-actions">
+  <div class="live-pill"><span class="pulse-dot"></span>LIVE <span id="clock">9:49:25 am</span></div>
+  <button class="icon-btn" onclick="refreshAll(true)" title="Refresh live feeds"><i class="fa-solid fa-rotate"></i></button>
+  <button class="icon-btn" onclick="openAbout()" title="System information"><i class="fa-solid fa-circle-info"></i></button>
+  <button class="icon-btn" onclick="toggleChat()" title="AI assistant"><i class="fa-solid fa-robot"></i></button><button class="mode-btn" onclick="openPalette()" title="Command palette">CTRL + K</button>
+  <button class="mode-btn" onclick="toggleNotificationDrawer()" title="Notifications"><i class="fa-solid fa-bell"></i></button>
+ </div>
+</header>
+
+<div class="content" id="dashboard">
+
+<section class="hero">
+ <div class="hero-grid"></div>
+ <div class="hero-inner">
+  <div class="badge"><i class="fa-solid fa-satellite-dish"></i> REAL WEATHER + AI ANALYTICS + GIS + IOT</div>
+  <h2>Real-Time Landslide Prediction &amp; Early Warning System for North-Eastern India</h2>
+  <p>
+   A full disaster-intelligence command center for terrain-risk monitoring across the North-Eastern Region.
+   Live weather observations feed the risk engine while the dashboard combines GIS mapping, sensor telemetry,
+   trend analytics, warning management, response planning and an operational AI assistant.
+  </p>
+  <div class="hero-source-strip"><span><i class="fa-solid fa-satellite"></i> Satellite GIS</span><span><i class="fa-solid fa-cloud-rain"></i> Live weather</span><span><i class="fa-solid fa-earth-asia"></i> Terrain-aware</span><span><i class="fa-solid fa-bolt"></i> USGS seismic feed</span></div>
+  <div class="hero-buttons">
+   <button class="btn btn-primary" onclick="runAI()"><i class="fa-solid fa-brain"></i> Run AI Prediction</button>
+   <button class="btn" onclick="scrollToId('risk-map')"><i class="fa-solid fa-map"></i> Open Live Map</button>
+   <button class="btn" onclick="refreshAll(true)"><i class="fa-solid fa-cloud-arrow-down"></i> Sync Weather</button>
+   <button class="btn" onclick="toggleChat()"><i class="fa-solid fa-robot"></i> Ask AI Assistant</button>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><h2>Regional Situation Overview</h2><p>Live command-center indicators</p></div><span class="tag"><span class="pulse-dot"></span>AUTO UPDATE</span></div>
+ <div class="kpi-grid">
+  <div class="kpi"><div class="kpi-top"><span class="kpi-label">MONITORING ZONES</span><div class="kpi-icon i-green"><i class="fa-solid fa-location-crosshairs"></i></div></div><h3>128</h3><small>High-priority terrain zones</small><div class="delta">● GIS monitoring active</div></div>
+  <div class="kpi"><div class="kpi-top"><span class="kpi-label">ACTIVE ALERTS</span><div class="kpi-icon i-red"><i class="fa-solid fa-bell"></i></div></div><h3 id="activeAlerts">5</h3><small>Risk warnings requiring attention</small><div class="delta" style="color:#ff7d8b">Dynamic</div></div>
+  <div class="kpi"><div class="kpi-top"><span class="kpi-label">SENSOR NODES</span><div class="kpi-icon i-blue"><i class="fa-solid fa-tower-broadcast"></i></div></div><h3>486</h3><small>Registered network nodes</small><div class="delta">98.2% online</div></div>
+  <div class="kpi"><div class="kpi-top"><span class="kpi-label">POPULATION AT RISK</span><div class="kpi-icon i-yellow"><i class="fa-solid fa-people-group"></i></div></div><h3 id="population">33.3K</h3><small>Risk-weighted estimate</small><div class="delta" style="color:#ffd16c">Dynamic estimate</div></div>
+  <div class="kpi"><div class="kpi-top"><span class="kpi-label">AI CONFIDENCE</span><div class="kpi-icon i-purple"><i class="fa-solid fa-robot"></i></div></div><h3 id="confidence">87.3%</h3><small>Current model confidence</small><div class="delta" id="confidenceMeta">Evidence model • live weather • station profile</div></div>
+  <div class="kpi"><div class="kpi-top"><span class="kpi-label">API CONNECTION</span><div class="kpi-icon i-cyan"><i class="fa-solid fa-signal"></i></div></div><h3 id="apiState" style="color: var(--green);">ONLINE</h3><small>Open-Meteo connection</small><div class="delta" id="apiLatency">1182 ms response</div></div>
+ </div>
+</section>
+
+<section class="section" id="risk-map">
+ <div class="section-head"><div><h2>Live NER GIS Risk Map</h2><p>Search any place, inspect stations and switch hazard layers</p></div><span class="tag">SATELLITE GIS • LIVE DATA</span></div>
+ <div class="grid2">
+  <div class="card"><div class="card-body">
+   <div class="map-tools-pro">
+    <div class="map-search-wrap"><input id="mapSearch" placeholder="Search any Indian city, village, district, PIN or landmark..." autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();searchMap()}" onfocus="localSuggest(this.value)" oninput="localSuggest(this.value)"><div id="searchSuggestions" class="search-suggestions" role="listbox" aria-label="Location suggestions"></div></div>
+    <button class="map-action primary" onclick="searchMap()"><i class="fa-solid fa-magnifying-glass"></i> SEARCH LOCATION</button>
+    <button class="map-action" onclick="locateMe()"><i class="fa-solid fa-location-crosshairs"></i> LIVE LOCATION</button>
+    <button class="map-action active" id="satelliteBtn" onclick="toggleSatellite()"><i class="fa-solid fa-satellite"></i> SATELLITE</button><button class="map-action" onclick="toggleMapFullscreen()"><i class="fa-solid fa-expand"></i> FULLSCREEN</button><button class="map-action" onclick="focusIndia()"><i class="fa-solid fa-crosshairs"></i> INDIA VIEW</button>
+   </div>
+   <div class="search-status"><span id="mapSearchStatus"><i class="fa-solid fa-circle-notch fa-spin"></i> Map ready — search any place to calculate a local hazard estimate.</span><span class="search-risk low" id="searchedRiskBadge">NO SEARCH</span></div>
+   <div class="map-quality"><span class="map-chip"><b>BASE:</b> SATELLITE</span><span class="map-chip"><b>RISK:</b> TERRAIN-AWARE</span><span class="map-chip"><b>SEARCH:</b> GLOBAL</span><span class="map-chip"><b>MODE:</b> LIVE WEATHER + TERRAIN ESTIMATE</span></div>
+   <div class="map-controls">
+    <button class="map-btn active" onclick="setMapLayer('risk',this)">AI RISK HEAT</button>
+    <button class="map-btn" onclick="setMapLayer('rain',this)">RAINFALL STRESS</button>
+    <button class="map-btn" onclick="setMapLayer('wind',this)">WIND</button>
+    <button class="map-btn" onclick="setMapLayer('quake',this)">LIVE QUAKES</button>
+    <button class="map-btn" onclick="setMapLayer('sensor',this)">SENSORS</button>
+    <button class="map-btn" onclick="setMapLayer('stations',this)">STATIONS</button>
+    <button class="map-btn" onclick="setMapLayer('terrain',this)">TERRAIN</button>
+   </div>
+   <div id="map" class="map leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(-26px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 15; transform: translate3d(601px, 102px, 0px) scale(0.125);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(481px, 82px, 0px) scale(0.5);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(321px, 55px, 0px) scale(1);"><img crossorigin="" alt="" src="https://a.tile.openstreetmap.org/1/0/0.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-88px, -153px, 0px); opacity: 1;"><img crossorigin="" alt="" src="https://b.tile.openstreetmap.org/1/0/1.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-88px, 103px, 0px); opacity: 1;"><img crossorigin="" alt="" src="https://b.tile.openstreetmap.org/1/1/0.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-344px, -153px, 0px); opacity: 1;"><img crossorigin="" alt="" src="https://b.tile.openstreetmap.org/1/1/0.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(168px, -153px, 0px); opacity: 1;"><img crossorigin="" alt="" src="https://c.tile.openstreetmap.org/1/1/1.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-344px, 103px, 0px); opacity: 1;"><img crossorigin="" alt="" src="https://c.tile.openstreetmap.org/1/1/1.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(168px, 103px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(620px, 117px, 0px); z-index: 117;"><div style="width:18px;height:18px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 17px #1bdd90"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(615px, 118px, 0px); z-index: 118;"><div style="width:18px;height:18px;border-radius:50%;background:#ffc04f;border:3px solid #fff;box-shadow:0 0 17px #ffc04f"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(620px, 120px, 0px); z-index: 120;"><div style="width:18px;height:18px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 17px #1bdd90"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(621px, 123px, 0px); z-index: 123;"><div style="width:18px;height:18px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 17px #1bdd90"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(623px, 120px, 0px); z-index: 120;"><div style="width:18px;height:18px;border-radius:50%;background:#ff5363;border:3px solid #fff;box-shadow:0 0 17px #ff5363"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(623px, 122px, 0px); z-index: 122;"><div style="width:18px;height:18px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 17px #1bdd90"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(619px, 123px, 0px); z-index: 123;"><div style="width:18px;height:18px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 17px #1bdd90"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style="margin-left: -9px; margin-top: -9px; width: 18px; height: 18px; transform: translate3d(624px, 117px, 0px); z-index: 117;"><div style="width:18px;height:18px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 17px #1bdd90"></div></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(106px, 373px, 0px) scale(1);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © OpenStreetMap contributors</div></div></div><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(44px, -75px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/26/48" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(152px, 15px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/27/48" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(152px, 271px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/26/47" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-104px, 15px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/26/49" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(408px, 15px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/27/47" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-104px, 271px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/27/49" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(408px, 271px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/25/48" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(152px, -241px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/28/48" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(152px, 527px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/25/47" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-104px, -241px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/25/49" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(408px, -241px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/28/47" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-104px, 527px, 0px); opacity: 1;"><img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/6/28/49" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(408px, 527px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"><canvas class="leaflet-zoom-animated" width="1358" height="1272" style="transform: translate3d(-101px, 22px, 0px); width: 679px; height: 636px;"></canvas></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Tawang • 23/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(237px, 244px, 0px); z-index: 244;"><div style="width:20px;height:20px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #1bdd90;animation:pulse 1.7s infinite"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Gangtok • 36/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(89px, 257px, 0px); z-index: 257;"><div style="width:20px;height:20px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #1bdd90;animation:pulse 1.7s infinite"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Shillong • 24/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(238px, 346px, 0px); z-index: 346;"><div style="width:20px;height:20px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #1bdd90;animation:pulse 1.7s infinite"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Aizawl • 30/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(276px, 439px, 0px); z-index: 439;"><div style="width:20px;height:20px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #1bdd90;animation:pulse 1.7s infinite"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Kohima • 64/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(339px, 341px, 0px); z-index: 341;"><div style="width:20px;height:20px;border-radius:50%;background:#ff5363;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #ff5363;animation:pulse 1.7s infinite"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Imphal • 26/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(331px, 384px, 0px); z-index: 384;"><div style="width:20px;height:20px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #1bdd90;animation:pulse 1.7s infinite"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Agartala • 33/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(211px, 434px, 0px); z-index: 434;"><div style="width:20px;height:20px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #1bdd90;animation:pulse 1.7s infinite"></div></div><div class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" title="Dibrugarh • 38/100" tabindex="0" role="button" style="margin-left: -10px; margin-top: -10px; width: 20px; height: 20px; transform: translate3d(376px, 250px, 0px); z-index: 250;"><div style="width:20px;height:20px;border-radius:50%;background:#1bdd90;border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px #1bdd90;animation:pulse 1.7s infinite"></div></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(12375px, 6981px, 0px) scale(32);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a> <span aria-hidden="true">|</span> © Esri, Maxar, Earthstar Geographics</div></div></div></div>
+   <div class="map-note"><span class="pulse-dot"></span>Last API sync: <b id="mapSync">9:49:02 am</b> • Search powered by OpenStreetMap Nominatim</div>
+   <div class="legend">
+    <span><i style="background:#1bdd90"></i>Low</span><span><i style="background:#ffc04f"></i>Moderate</span><span><i style="background:#ff5363"></i>High</span><span><i style="background:#941f2a"></i>Critical</span>
+   </div>
+   <div class="map-insight" id="mapInsight"><b>Terrain-aware landslide analysis:</b> Search any place. The dashboard geocodes it, checks local weather plus nearby elevation/relief, estimates terrain susceptibility, then calculates a <b>landslide-focused</b> risk. Flat/low-relief places are deliberately prevented from becoming HIGH just because rainfall is high. This remains an <b>AI/demo estimate</b>, not an official government hazard rating.</div>
+  </div></div>
+
+  <div class="card" id="risk-engine"><div class="card-head"><div><h3>AI Landslide Risk Engine</h3><small id="riskLocation" style="display:block;color:#6fbfd0;margin-top:4px;font-size:7px">Selected analysis: Tawang, Arunachal Pradesh</small></div><span id="riskTime">9:49:25 am</span></div><div class="card-body">
+   <div class="risk-flex">
+    <div class="risk-circle" id="riskCircle" style="background: conic-gradient(rgb(27, 221, 144) 0deg, rgb(27, 221, 144) 82.8deg, rgb(36, 57, 78) 82.8deg, rgb(36, 57, 78) 360deg);"><div class="risk-number"><strong id="riskScore">23</strong><small>/ 100 RISK</small></div></div>
+    <div class="risk-info"><h3 id="riskLabel">LOW RISK</h3><span class="risk-badge" id="riskStatus">MONITOR</span><p id="riskExplanation">Tawang is currently LOW. Weather-driven indicators are below the high-risk threshold; continuous monitoring is active.</p></div>
+   </div>
+   <div style="margin-top:12px;padding:9px 10px;border:1px solid rgba(154,125,255,.16);border-radius:9px;background:rgba(154,125,255,.045);font-size:7px;color:#8fa7bb">AI evidence quality: <b id="dataQualityScore">87%</b> • confidence updates from data freshness + terrain + evidence availability</div><div class="factor"><div class="factor-head"><span>Rainfall Influence</span><strong id="rainFactor">6%</strong></div><div class="progress"><i class="bar-rain" id="rainBar" style="width: 6.345%;"></i></div></div>
+   <div class="factor"><div class="factor-head"><span>Soil Moisture Proxy</span><strong id="soilFactor">50%</strong></div><div class="progress"><i class="bar-soil" id="soilBar" style="width: 50%;"></i></div></div>
+   <div class="factor"><div class="factor-head"><span>Ground Movement Index</span><strong id="moveFactor">22%</strong></div><div class="progress"><i class="bar-move" id="moveBar" style="width: 22%;"></i></div></div>
+   <div class="factor"><div class="factor-head"><span>Seismic Activity Index</span><strong id="seisFactor">19%</strong></div><div class="progress"><i class="bar-seis" id="seisBar" style="width: 19%;"></i></div></div>
+  </div></div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><h2>Environmental Trend Analytics</h2><p>Live rolling chart with risk and rainfall history</p></div><span class="tag">STREAMING</span></div>
+ <div class="grid2">
+  <div class="card"><div class="card-head"><h3>Rainfall vs AI Risk</h3><span>ROLLING WINDOW</span></div><div class="card-body"><div class="chart-box"><canvas id="riskChart" width="1014" height="465" style="display: block; box-sizing: border-box; height: 310px; width: 676.6px;"></canvas></div></div></div>
+  <div class="card"><div class="card-head"><h3>Regional Risk Distribution</h3><span>LIVE</span></div><div class="card-body"><div class="chart-box"><canvas id="distributionChart" width="1014" height="465" style="display: block; box-sizing: border-box; height: 310px; width: 676.6px;"></canvas></div></div></div>
+ </div>
+</section>
+
+<section class="section" id="weather">
+ <div class="section-head">
+  <div><h2>Live Weather Control Room</h2><p>Actual weather API values for NER monitoring stations</p></div>
+  <div>
+   <select id="stationSelect" class="select" onchange="changeStation(this.value)">
+    <option value="0">Tawang, Arunachal Pradesh</option>
+    <option value="1">Gangtok, Sikkim</option>
+    <option value="2">Shillong, Meghalaya</option>
+    <option value="3">Aizawl, Mizoram</option>
+    <option value="4">Kohima, Nagaland</option>
+    <option value="5">Imphal, Manipur</option>
+    <option value="6">Agartala, Tripura</option>
+    <option value="7">Dibrugarh, Assam</option>
+   </select>
+  </div>
+ </div>
+ <div class="grid2">
+  <div class="card weather-card rain" id="weatherCard"><div class="card-head"><h3 id="stationTitle">Tawang Weather Station</h3><span id="stationState">Arunachal Pradesh</span></div><div class="card-body">
+   <div class="weather-top">
+    <div><div class="temp" id="temperature">17°</div><div class="condition" id="condition">Drizzle • LIVE API</div><div class="coords" id="coords">27.5860° N, 91.8590° E</div></div>
+    <div class="weather-icon"><i id="weatherIcon" class="fa-solid fa-cloud-rain"></i></div>
+   </div>
+   <div class="weather-grid">
+    <div class="weather-item"><i class="fa-solid fa-wind"></i><strong id="wind">6.7 km/h</strong><span>WIND SPEED</span></div>
+    <div class="weather-item"><i class="fa-solid fa-droplet"></i><strong id="humidity">69%</strong><span>HUMIDITY</span></div>
+    <div class="weather-item"><i class="fa-solid fa-cloud-rain"></i><strong id="rainNow">0.1 mm</strong><span>PRECIPITATION</span></div>
+    <div class="weather-item"><i class="fa-solid fa-cloud-showers-heavy"></i><strong id="rain24">2.7 mm</strong><span>24H RAIN</span></div>
+   </div>
+   <div class="source">Source: <b>Open-Meteo</b> • real API sync every 60 seconds • last success <b id="weatherUpdated">9:49:02 am</b></div>
+  </div></div>
+
+  <div class="card"><div class="card-head"><h3>Regional Weather Stations</h3><span>LIVE FEED</span></div><div class="card-body"><div class="table-wrap">
+   <table class="data-table"><thead><tr><th>Station</th><th>Temp</th><th>Wind</th><th>Rain 24H</th><th>Risk</th><th></th></tr></thead><tbody id="weatherTable"><tr onclick="changeStation(0)" style="cursor:pointer"><td class="state">Tawang</td><td>17.1°C</td><td>6.7</td><td>2.7</td><td><span class="pill pill-low">23</span></td><td>→</td></tr><tr onclick="changeStation(1)" style="cursor:pointer"><td class="state">Gangtok</td><td>22.7°C</td><td>1.2</td><td>11.0</td><td><span class="pill pill-low">36</span></td><td>→</td></tr><tr onclick="changeStation(2)" style="cursor:pointer"><td class="state">Shillong</td><td>24.6°C</td><td>2.7</td><td>3.8</td><td><span class="pill pill-low">24</span></td><td>→</td></tr><tr onclick="changeStation(3)" style="cursor:pointer"><td class="state">Aizawl</td><td>24.3°C</td><td>2.3</td><td>6.6</td><td><span class="pill pill-low">30</span></td><td>→</td></tr><tr onclick="changeStation(4)" style="cursor:pointer"><td class="state">Kohima</td><td>23.2°C</td><td>5.1</td><td>26.4</td><td><span class="pill pill-high">64</span></td><td>→</td></tr><tr onclick="changeStation(5)" style="cursor:pointer"><td class="state">Imphal</td><td>27.3°C</td><td>5.2</td><td>4.3</td><td><span class="pill pill-low">26</span></td><td>→</td></tr><tr onclick="changeStation(6)" style="cursor:pointer"><td class="state">Agartala</td><td>29.8°C</td><td>7.5</td><td>8.1</td><td><span class="pill pill-low">33</span></td><td>→</td></tr><tr onclick="changeStation(7)" style="cursor:pointer"><td class="state">Dibrugarh</td><td>28.0°C</td><td>5.0</td><td>11.3</td><td><span class="pill pill-low">38</span></td><td>→</td></tr></tbody></table>
+  </div></div></div>
+ </div>
+</section>
+
+<section class="section" id="region">
+ <div class="section-head"><div><h2>Regional Situation Board</h2><p>Dynamic weather-derived risk across the selected NER monitoring network</p></div><span class="tag">8 LOCATIONS</span></div>
+ <div class="card"><div class="card-body"><div class="table-wrap">
+  <table class="data-table"><thead><tr><th>Location</th><th>State</th><th>Condition</th><th>Rain</th><th>Wind</th><th>AI Risk</th><th>Status</th></tr></thead><tbody id="stateTable"><tr><td class="state">Tawang</td><td>Arunachal Pradesh</td><td>Drizzle</td><td>2.7 mm</td><td>6.7 km/h</td><td><span class="pill pill-low">23/100</span></td><td>● Monitoring</td></tr><tr><td class="state">Gangtok</td><td>Sikkim</td><td>Partly cloudy</td><td>11.0 mm</td><td>1.2 km/h</td><td><span class="pill pill-low">36/100</span></td><td>● Monitoring</td></tr><tr><td class="state">Shillong</td><td>Meghalaya</td><td>Drizzle</td><td>3.8 mm</td><td>2.7 km/h</td><td><span class="pill pill-low">24/100</span></td><td>● Monitoring</td></tr><tr><td class="state">Aizawl</td><td>Mizoram</td><td>Partly cloudy</td><td>6.6 mm</td><td>2.3 km/h</td><td><span class="pill pill-low">30/100</span></td><td>● Monitoring</td></tr><tr><td class="state">Kohima</td><td>Nagaland</td><td>Thunderstorm</td><td>26.4 mm</td><td>5.1 km/h</td><td><span class="pill pill-high">64/100</span></td><td>⚠ Action</td></tr><tr><td class="state">Imphal</td><td>Manipur</td><td>Partly cloudy</td><td>4.3 mm</td><td>5.2 km/h</td><td><span class="pill pill-low">26/100</span></td><td>● Monitoring</td></tr><tr><td class="state">Agartala</td><td>Tripura</td><td>Partly cloudy</td><td>8.1 mm</td><td>7.5 km/h</td><td><span class="pill pill-low">33/100</span></td><td>● Monitoring</td></tr><tr><td class="state">Dibrugarh</td><td>Assam</td><td>Drizzle</td><td>11.3 mm</td><td>5.0 km/h</td><td><span class="pill pill-low">38/100</span></td><td>● Monitoring</td></tr></tbody></table>
+ </div></div></div>
+</section>
+
+<section class="section" id="sensors">
+ <div class="section-head"><div><h2>IoT Sensor Telemetry</h2><p>High-frequency front-end stream; connect physical devices through MQTT/REST/WebSocket for production</p></div><span class="tag"><span class="pulse-dot"></span>DEMO STREAM</span></div>
+ <div class="sensor-grid" id="sensorGrid"><div class="sensor"><div class="sensor-top"><span class="sensor-name">RAIN-TAW-01</span><span class="sensor-status">●</span></div><div class="sensor-value">0.1</div><div class="sensor-unit">Rain Gauge • mm/h</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">SOIL-SHL-07</span><span class="sensor-status">●</span></div><div class="sensor-value">50</div><div class="sensor-unit">Soil Moisture • %</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">TILT-GNG-03</span><span class="sensor-status">●</span></div><div class="sensor-value">2.8</div><div class="sensor-unit">Slope Tilt • °</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">GNSS-TAW-11</span><span class="sensor-status">●</span></div><div class="sensor-value">4.4</div><div class="sensor-unit">Ground Shift • mm</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">SEIS-KOH-02</span><span class="sensor-status">●</span></div><div class="sensor-value">0.024</div><div class="sensor-unit">Seismic • g</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">GW-AIZ-05</span><span class="sensor-status">●</span></div><div class="sensor-value">8.5</div><div class="sensor-unit">Groundwater • m</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">RAIN-KOH-04</span><span class="sensor-status">●</span></div><div class="sensor-value">0.3</div><div class="sensor-unit">Rain Gauge • mm/h</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">TILT-AIZ-06</span><span class="sensor-status">●</span></div><div class="sensor-value">1.5</div><div class="sensor-unit">Slope Tilt • °</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div><div class="sensor"><div class="sensor-top"><span class="sensor-name">GNSS-GNG-02</span><span class="sensor-status">●</span></div><div class="sensor-value">3.3</div><div class="sensor-unit">Ground Shift • mm</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>9:49:25 am</span></div></div></div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><h2>API &amp; Data Health</h2><p>Visible connection diagnostics so you can see when live data is actually connected</p></div><span class="tag">DIAGNOSTICS</span></div>
+ <div class="card"><div class="card-body"><div class="api-monitor">
+  <div class="api-stat"><span>WEATHER API</span><strong id="healthWeather" style="color: var(--green);">CONNECTED</strong></div>
+  <div class="api-stat"><span>MAP TILES</span><strong id="healthMap">Satellite loaded</strong></div>
+  <div class="api-stat"><span>LAST WEATHER SYNC</span><strong id="healthSync">9:49:02 am</strong></div>
+  <div class="api-stat"><span>NETWORK LATENCY</span><strong id="healthLatency">1182 ms</strong></div>
+ </div></div></div>
+</section>
+
+<section class="section" id="alerts">
+ <div class="section-head"><div><h2>Early Warning Center</h2><p>Generated from current environmental indicators</p></div><span class="tag">LIVE ALERTS</span></div>
+ <div class="grid2">
+  <div class="card"><div class="card-head"><h3>Priority Alerts</h3><span>AI GENERATED</span></div><div class="card-body"><div class="alert-list" id="alertList">
+ <div class="alert alert-blue">
+  <div class="alert-icon" style="background:rgba(255,80,99,.1);color:#ff7e8c"><i class="fa-solid fa-triangle-exclamation"></i></div>
+  <div><h4>Risk assessment updated</h4><p>Tawang is currently at AI risk <b>23/100</b>.</p><time>9:49:25 am</time></div>
+ </div>
+ <div class="alert alert-yellow">
+  <div class="alert-icon" style="background:rgba(255,196,79,.1);color:#ffd16b"><i class="fa-solid fa-cloud-rain"></i></div>
+  <div><h4>Rainfall / saturation analysis</h4><p>Rainfall and humidity are being incorporated into the current landslide-risk calculation.</p><time>Live analysis</time></div>
+ </div>
+ <div class="alert alert-blue">
+  <div class="alert-icon" style="background:rgba(85,166,255,.1);color:#6eb5ff"><i class="fa-solid fa-satellite-dish"></i></div>
+  <div><h4>Monitoring network healthy</h4><p>GIS markers, API weather stations and sensor gateway data (not connected) are active.</p><time>API connected</time></div>
+ </div></div></div></div>
+  <div class="card" id="history"><div class="card-head"><h3>Incident Timeline</h3><span>RECENT EVENTS</span></div><div class="card-body"><div class="timeline" id="timeline">
+ <div class="timeline-item"><h4>Weather observation cycle</h4><p>Live observations synchronized from Open-Meteo.</p><span>9:49:02 am</span></div>
+ <div class="timeline-item"><h4>AI risk engine update</h4><p>Rainfall, humidity, movement and seismic indicators recomputed for the selected station.</p><span>Continuous</span></div>
+ <div class="timeline-item"><h4>IoT telemetry pulse</h4><p>Sensor gateway is not connected; no physical reading is being claimed.</p><span>Every 2 seconds</span></div>
+ <div class="timeline-item"><h4>GIS monitoring</h4><p>Map markers refreshed across all configured NER monitoring locations.</p><span>Operational</span></div></div></div></div>
+ </div>
+</section>
+
+<section class="section" id="response">
+ <div class="section-head"><div><h2>Response Planning &amp; Evacuation</h2><p>Operational workflow modules for emergency teams</p></div><span class="tag">RESPONSE MODE</span></div>
+ <div class="grid4">
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-route"></i></div><h4>Safe Route Planner</h4><p>Route engine concept for avoiding high-risk slopes, closures and hazard corridors.</p><div class="metric">● 6 routes monitored</div></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-house-medical"></i></div><h4>Relief Centers</h4><p>Track shelter locations, occupancy, medical support, food, water and logistics.</p><div class="metric">● 14 centers tracked</div></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-bullhorn"></i></div><h4>Emergency Broadcast</h4><p>Connect alerts to SMS, mobile notifications, sirens and local-language warnings.</p><div class="metric">● Broadcast channel ready</div></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div><h4>Response Fleet</h4><p>Monitor rescue vehicles, equipment and dispatch availability during an incident.</p><div class="metric">● 23 units available</div></div>
+ </div>
+</section>
+
+<section class="section" id="satellite">
+ <div class="section-head"><div><h2>Satellite, Terrain &amp; GIS Intelligence</h2><p>Useful extensions for a production landslide monitoring system</p></div><span class="tag">REMOTE SENSING</span></div>
+ <div class="grid4">
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-satellite"></i></div><h4>Terrain Change Detection</h4><p>Compare satellite observations, DEM layers and deformation indicators for unstable terrain.</p><div class="metric">InSAR / Optical ready</div></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div><h4>Multi-Layer GIS</h4><p>Combine hazard zones, roads, settlements, rivers, slopes and weather indicators in one view.</p><div class="metric">7 GIS layers</div></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-mountain"></i></div><h4>Susceptibility Mapping</h4><p>Integrate geology, slope, soil moisture, land cover and historical incidents.</p><div class="metric">Terrain model</div></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-water"></i></div><h4>Drainage &amp; Runoff</h4><p>Monitor intense rainfall, runoff accumulation and drainage bottlenecks around settlements.</p><div class="metric">Hydrology layer</div></div>
+ </div>
+</section>
+
+<section class="section" id="simulator">
+ <div class="section-head"><div><h2>Risk Scenario Simulator</h2><p>Try “what-if” conditions before connecting a trained ML model</p></div><span class="tag">DECISION SUPPORT</span></div>
+ <div class="card"><div class="card-body">
+  <div class="grid3">
+   <div class="scenario"><b style="font-size:9px">Rainfall Stress</b><div class="range-row"><span>Input</span><strong id="simRainValue">60%</strong></div><input class="range" id="simRain" type="range" min="0" max="100" value="60" oninput="updateScenario()"></div>
+   <div class="scenario"><b style="font-size:9px">Soil Saturation</b><div class="range-row"><span>Input</span><strong id="simSoilValue">65%</strong></div><input class="range" id="simSoil" type="range" min="0" max="100" value="65" oninput="updateScenario()"></div>
+   <div class="scenario"><b style="font-size:9px">Ground Movement</b><div class="range-row"><span>Input</span><strong id="simMoveValue">40%</strong></div><input class="range" id="simMove" type="range" min="0" max="100" value="40" oninput="updateScenario()"></div>
+  </div>
+  <div style="margin-top:17px;padding:15px;border:1px solid var(--line);border-radius:11px;background:#081827">
+   <span style="font-size:7px;color:var(--muted)">ESTIMATED LANDSLIDE RISK</span>
+   <div class="scenario-result" id="scenarioRisk" style="color: rgb(255, 192, 79);">57/100</div>
+   <p id="scenarioAdvice" style="font-size:8px;color:var(--muted);margin-top:5px">Moderate scenario: increase monitoring frequency.</p>
+  </div>
+ </div></div>
+</section>
+
+
+<section class="section" id="live-radar-v2">
+ <div class="section-head"><div><h2>India Hazard Priority Radar</h2><p>Terrain-aware watchlist across major Himalayan, North-Eastern and Western Ghats landslide corridors</p></div><span class="tag">INDIA WATCHLIST • ESTIMATE</span></div>
+ <div class="card"><div class="card-body"><div class="radar-wrap">
+  <div><div class="radar-stage" id="radarStage"><div class="radar-sweep"></div><div class="radar-core"></div><span class="radar-label n">N</span><span class="radar-label e">E</span><span class="radar-label s">S</span><span class="radar-label w">W</span><div class="radar-point" title="Mangan: 82/100" style="left: 94.24%; top: 50%; color: rgb(148, 31, 42); background: rgb(148, 31, 42); width: 15.8333px; height: 15.8333px;"></div><div class="radar-point" title="Nainital: 69/100" style="left: 89.6103%; top: 53.7933%; color: rgb(255, 83, 99); background: rgb(255, 83, 99); width: 14.75px; height: 14.75px;"></div><div class="radar-point" title="Kohima: 64/100" style="left: 86.6867%; top: 57.1983%; color: rgb(255, 83, 99); background: rgb(255, 83, 99); width: 14.3333px; height: 14.3333px;"></div><div class="radar-point" title="Kohima: 61/100" style="left: 83.6241%; top: 60.322%; color: rgb(255, 83, 99); background: rgb(255, 83, 99); width: 14.0833px; height: 14.0833px;"></div><div class="radar-point" title="Pithoragarh: 54/100" style="left: 78.8565%; top: 62.5843%; color: rgb(255, 192, 79); background: rgb(255, 192, 79); width: 13.5px; height: 13.5px;"></div><div class="radar-point" title="Darjeeling: 47/100" style="left: 73.806%; top: 64.2048%; color: rgb(255, 192, 79); background: rgb(255, 192, 79); width: 12.9167px; height: 12.9167px;"></div><div class="radar-point" title="Uttarkashi: 46/100" style="left: 69.8357%; top: 66.1336%; color: rgb(255, 192, 79); background: rgb(255, 192, 79); width: 12.8333px; height: 12.8333px;"></div><div class="radar-point" title="Bomdila: 46/100" style="left: 65.631%; top: 67.8219%; color: rgb(255, 192, 79); background: rgb(255, 192, 79); width: 12.8333px; height: 12.8333px;"></div><div class="radar-point" title="Kalimpong: 44/100" style="left: 60.8436%; top: 68.7189%; color: rgb(255, 192, 79); background: rgb(255, 192, 79); width: 12.6667px; height: 12.6667px;"></div><div class="radar-point" title="Gangtok: 44/100" style="left: 56.1077%; top: 69.5258%; color: rgb(255, 192, 79); background: rgb(255, 192, 79); width: 12.6667px; height: 12.6667px;"></div><div class="radar-point" title="Chamoli: 41/100" style="left: 51.192%; top: 69.2802%; color: rgb(255, 192, 79); background: rgb(255, 192, 79); width: 12.4167px; height: 12.4167px;"></div><div class="radar-point" title="Shimla: 39/100" style="left: 46.5044%; top: 68.7729%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12.25px; height: 12.25px;"></div><div class="radar-point" title="Mahabaleshwar: 39/100" style="left: 41.9234%; top: 68.2221%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12.25px; height: 12.25px;"></div><div class="radar-point" title="Dibrugarh: 38/100" style="left: 37.6625%; top: 67.0631%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12.1667px; height: 12.1667px;"></div><div class="radar-point" title="Kinnaur: 38/100" style="left: 33.606%; top: 65.6955%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12.1667px; height: 12.1667px;"></div><div class="radar-point" title="Rudraprayag: 38/100" style="left: 29.9338%; top: 63.9599%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12.1667px; height: 12.1667px;"></div><div class="radar-point" title="Gangtok: 36/100" style="left: 27.2256%; top: 61.6448%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12px; height: 12px;"></div><div class="radar-point" title="Manali: 36/100" style="left: 24.6255%; top: 59.3529%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12px; height: 12px;"></div><div class="radar-point" title="Tawang: 36/100" style="left: 22.6201%; top: 56.8417%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12px; height: 12px;"></div><div class="radar-point" title="Cherrapunji: 36/100" style="left: 21.2565%; top: 54.1703%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12px; height: 12px;"></div><div class="radar-point" title="Lonavala: 36/100" style="left: 20.5666%; top: 51.401%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 12px; height: 12px;"></div><div class="radar-point" title="Gulmarg: 35/100" style="left: 20.8857%; top: 48.6142%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.9167px; height: 11.9167px;"></div><div class="radar-point" title="Aizawl: 35/100" style="left: 21.5681%; top: 45.8749%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.9167px; height: 11.9167px;"></div><div class="radar-point" title="Mandi: 35/100" style="left: 22.9169%; top: 43.2324%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.9167px; height: 11.9167px;"></div><div class="radar-point" title="Srinagar Garhwal: 35/100" style="left: 24.9006%; top: 40.7485%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.9167px; height: 11.9167px;"></div><div class="radar-point" title="Dharamshala: 34/100" style="left: 27.7194%; top: 38.6077%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.8333px; height: 11.8333px;"></div><div class="radar-point" title="Idukki: 34/100" style="left: 30.7854%; top: 36.6325%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.8333px; height: 11.8333px;"></div><div class="radar-point" title="Agartala: 33/100" style="left: 34.4757%; top: 35.1372%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.75px; height: 11.75px;"></div><div class="radar-point" title="Kodaikanal: 32/100" style="left: 38.4479%; top: 34.0232%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.6667px; height: 11.6667px;"></div><div class="radar-point" title="Shillong: 31/100" style="left: 42.6017%; top: 33.3084%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.5833px; height: 11.5833px;"></div><div class="radar-point" title="Aizawl: 30/100" style="left: 46.8347%; top: 33.0009%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.5px; height: 11.5px;"></div><div class="radar-point" title="Pahalgam: 29/100" style="left: 51.0449%; top: 33.0988%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.4167px; height: 11.4167px;"></div><div class="radar-point" title="Munnar: 29/100" style="left: 55.1939%; top: 33.3958%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.4167px; height: 11.4167px;"></div><div class="radar-point" title="Agumbe: 27/100" style="left: 59.0048%; top: 34.4554%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.25px; height: 11.25px;"></div><div class="radar-point" title="Imphal: 26/100" style="left: 62.5736%; top: 35.6641%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.1667px; height: 11.1667px;"></div><div class="radar-point" title="Kodagu: 26/100" style="left: 65.9559%; top: 37.0221%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.1667px; height: 11.1667px;"></div><div class="radar-point" title="Wayanad: 25/100" style="left: 68.7336%; top: 38.8219%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11.0833px; height: 11.0833px;"></div><div class="radar-point" title="Shillong: 24/100" style="left: 71.0044%; top: 40.84%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 11px; height: 11px;"></div><div class="radar-point" title="Tawang: 23/100" style="left: 72.7268%; top: 43.0233%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 10.9167px; height: 10.9167px;"></div><div class="radar-point" title="Ooty: 23/100" style="left: 74.1781%; top: 45.256%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 10.9167px; height: 10.9167px;"></div><div class="radar-point" title="Srinagar: 21/100" style="left: 74.4303%; top: 47.6604%; color: rgb(27, 221, 144); background: rgb(27, 221, 144); width: 10.75px; height: 10.75px;"></div></div><div class="radar-caption"><b>How to use this radar:</b> it is a <b>Hazard Priority Radar</b>, not a weather-radar feed. Each pulse is one monitored location; brighter/larger priority means higher current landslide-risk estimate. Click a row to jump to that location on the GIS map. Use it to decide <b>where to investigate first</b>, then verify the evidence in weather, sensor and incident panels.</div><div class="india-note"><b>Coverage:</b> India-wide representative landslide watchlist + fresh weather + live seismic context. This is a decision-support view, not an official warning layer.</div></div>
+  <div class="radar-list" id="radarList"><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:82,&quot;rain24&quot;:37.800000000000004,&quot;rainNow&quot;:0.2,&quot;hum&quot;:77,&quot;wind&quot;:3.3,&quot;temp&quot;:26.8,&quot;soil&quot;:54,&quot;move&quot;:31,&quot;elev&quot;:90,&quot;relief&quot;:500,&quot;slopeDeg&quot;:13.5,&quot;susceptibility&quot;:100,&quot;terrainLabel&quot;:&quot;STEEP TERRAIN / HIGH SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;critical&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Mangan&quot;,&quot;state&quot;:&quot;Sikkim&quot;,&quot;lat&quot;:27.509,&quot;lon&quot;:88.535,&quot;index&quot;:15},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Mangan</strong><br><span>Sikkim • 37.8 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#941f2a">82</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:69,&quot;rain24&quot;:42.300000000000004,&quot;rainNow&quot;:0.4,&quot;hum&quot;:98,&quot;wind&quot;:3.1,&quot;temp&quot;:16.3,&quot;soil&quot;:69,&quot;move&quot;:32,&quot;elev&quot;:68,&quot;relief&quot;:260,&quot;slopeDeg&quot;:8.7,&quot;susceptibility&quot;:69,&quot;terrainLabel&quot;:&quot;SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;high&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Nainital&quot;,&quot;state&quot;:&quot;Uttarakhand&quot;,&quot;lat&quot;:29.3919,&quot;lon&quot;:79.4542,&quot;index&quot;:11},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Nainital</strong><br><span>Uttarakhand • 42.3 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ff5363">69</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;temp&quot;:23.2,&quot;hum&quot;:86,&quot;wind&quot;:5.1,&quot;rainNow&quot;:0.7,&quot;rain24&quot;:26.400000000000006,&quot;code&quot;:95,&quot;soil&quot;:62,&quot;move&quot;:36,&quot;risk&quot;:64,&quot;loc&quot;:{&quot;name&quot;:&quot;Kohima&quot;,&quot;state&quot;:&quot;Nagaland&quot;,&quot;lat&quot;:25.6751,&quot;lon&quot;:94.1086},&quot;scope&quot;:&quot;NER&quot;})"><div><strong>Kohima</strong><br><span>Nagaland • 26.4 mm/24h • NER network</span></div><b style="color:#ff5363">64</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:61,&quot;rain24&quot;:26.400000000000006,&quot;rainNow&quot;:0.7,&quot;hum&quot;:86,&quot;wind&quot;:5.1,&quot;temp&quot;:23.2,&quot;soil&quot;:60,&quot;move&quot;:28,&quot;elev&quot;:74,&quot;relief&quot;:260,&quot;slopeDeg&quot;:7.5,&quot;susceptibility&quot;:60,&quot;terrainLabel&quot;:&quot;SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;high&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Kohima&quot;,&quot;state&quot;:&quot;Nagaland&quot;,&quot;lat&quot;:25.6751,&quot;lon&quot;:94.1086,&quot;index&quot;:20},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Kohima</strong><br><span>Nagaland • 26.4 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ff5363">61</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:54,&quot;rain24&quot;:16.4,&quot;rainNow&quot;:0.2,&quot;hum&quot;:99,&quot;wind&quot;:2.8,&quot;temp&quot;:19.1,&quot;soil&quot;:69,&quot;move&quot;:24,&quot;elev&quot;:79,&quot;relief&quot;:260,&quot;slopeDeg&quot;:10.2,&quot;susceptibility&quot;:79,&quot;terrainLabel&quot;:&quot;SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;high&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Pithoragarh&quot;,&quot;state&quot;:&quot;Uttarakhand&quot;,&quot;lat&quot;:29.582,&quot;lon&quot;:80.218,&quot;index&quot;:10},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Pithoragarh</strong><br><span>Uttarakhand • 16.4 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ffc04f">54</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:47,&quot;rain24&quot;:15.6,&quot;rainNow&quot;:0,&quot;hum&quot;:69,&quot;wind&quot;:4.1,&quot;temp&quot;:20.6,&quot;soil&quot;:48,&quot;move&quot;:23,&quot;elev&quot;:75,&quot;relief&quot;:260,&quot;slopeDeg&quot;:9.2,&quot;susceptibility&quot;:72,&quot;terrainLabel&quot;:&quot;SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;high&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Darjeeling&quot;,&quot;state&quot;:&quot;West Bengal&quot;,&quot;lat&quot;:27.036,&quot;lon&quot;:88.2627,&quot;index&quot;:12},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Darjeeling</strong><br><span>West Bengal • 15.6 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ffc04f">47</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:46,&quot;rain24&quot;:6.700000000000001,&quot;rainNow&quot;:0,&quot;hum&quot;:87,&quot;wind&quot;:3,&quot;temp&quot;:24.3,&quot;soil&quot;:61,&quot;move&quot;:20,&quot;elev&quot;:86,&quot;relief&quot;:500,&quot;slopeDeg&quot;:12.5,&quot;susceptibility&quot;:96,&quot;terrainLabel&quot;:&quot;STEEP TERRAIN / HIGH SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;critical&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Uttarkashi&quot;,&quot;state&quot;:&quot;Uttarakhand&quot;,&quot;lat&quot;:30.7268,&quot;lon&quot;:78.4354,&quot;index&quot;:7},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Uttarkashi</strong><br><span>Uttarakhand • 6.7 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ffc04f">46</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:46,&quot;rain24&quot;:9.899999999999999,&quot;rainNow&quot;:0.1,&quot;hum&quot;:80,&quot;wind&quot;:4.6,&quot;temp&quot;:18.5,&quot;soil&quot;:56,&quot;move&quot;:21,&quot;elev&quot;:82,&quot;relief&quot;:500,&quot;slopeDeg&quot;:11,&quot;susceptibility&quot;:85,&quot;terrainLabel&quot;:&quot;SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;high&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Bomdila&quot;,&quot;state&quot;:&quot;Arunachal Pradesh&quot;,&quot;lat&quot;:27.2645,&quot;lon&quot;:92.4244,&quot;index&quot;:17},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Bomdila</strong><br><span>Arunachal Pradesh • 9.9 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ffc04f">46</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:44,&quot;rain24&quot;:12.999999999999998,&quot;rainNow&quot;:0.1,&quot;hum&quot;:77,&quot;wind&quot;:4,&quot;temp&quot;:25.2,&quot;soil&quot;:54,&quot;move&quot;:22,&quot;elev&quot;:72,&quot;relief&quot;:260,&quot;slopeDeg&quot;:8.2,&quot;susceptibility&quot;:65,&quot;terrainLabel&quot;:&quot;SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;high&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Kalimpong&quot;,&quot;state&quot;:&quot;West Bengal&quot;,&quot;lat&quot;:27.066,&quot;lon&quot;:88.475,&quot;index&quot;:13},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Kalimpong</strong><br><span>West Bengal • 13.0 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ffc04f">44</b></div><div class="radar-row" onclick="focusRiskLocation({&quot;risk&quot;:44,&quot;rain24&quot;:11.000000000000002,&quot;rainNow&quot;:0,&quot;hum&quot;:76,&quot;wind&quot;:1.2,&quot;temp&quot;:22.7,&quot;soil&quot;:53,&quot;move&quot;:22,&quot;elev&quot;:80,&quot;relief&quot;:260,&quot;slopeDeg&quot;:9.7,&quot;susceptibility&quot;:76,&quot;terrainLabel&quot;:&quot;SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY&quot;,&quot;terrainKey&quot;:&quot;high&quot;,&quot;loc&quot;:{&quot;name&quot;:&quot;Gangtok&quot;,&quot;state&quot;:&quot;Sikkim&quot;,&quot;lat&quot;:27.3389,&quot;lon&quot;:88.6065,&quot;index&quot;:14},&quot;source&quot;:&quot;LIVE WEATHER + ESTIMATED TERRAIN&quot;,&quot;scope&quot;:&quot;INDIA&quot;})"><div><strong>Gangtok</strong><br><span>Sikkim • 11.0 mm/24h • LIVE WEATHER + ESTIMATED TERRAIN</span></div><b style="color:#ffc04f">44</b></div></div>
+ </div></div></div>
+</section>
+
+<section class="section" id="ai-action-planner">
+ <div class="section-head"><div><h2>AI Action Planner</h2><p>Context-aware response suggestions based on current risk, weather and operational state</p></div><button class="btn btn-primary" onclick="refreshActionPlanner()"><i class="fa-solid fa-wand-magic-sparkles"></i> REFRESH PLAN</button></div>
+ <div class="card"><div class="card-body"><div class="action-board" id="actionBoard"><div class="action-item"><i class="fa-solid fa-chart-line"></i><h4>Increase monitoring</h4><p>Keep continuous observation and watch rainfall accumulation.</p><button class="btn action-btn" onclick="toast('Opened Increase monitoring workflow')">OPEN</button></div><div class="action-item"><i class="fa-solid fa-microchip"></i><h4>Check sensor health</h4><p>Inspect battery, signal, thresholds and latest packets for critical nodes.</p><button class="btn action-btn" onclick="toast('Opened Check sensor health workflow')">OPEN</button></div><div class="action-item"><i class="fa-solid fa-route"></i><h4>Prepare response routes</h4><p>Keep route information synchronized for rapid escalation.</p><button class="btn action-btn" onclick="toast('Opened Prepare response routes workflow')">OPEN</button></div><div class="action-item"><i class="fa-solid fa-bullhorn"></i><h4>Review warning workflow</h4><p>Keep watch/verification workflow ready.</p><button class="btn action-btn" onclick="toast('Opened Review warning workflow workflow')">OPEN</button></div><div class="action-item"><i class="fa-solid fa-house-medical"></i><h4>Review shelter readiness</h4><p>Check occupancy, beds, water, food, medical support and communications.</p><button class="btn action-btn" onclick="toast('Opened Review shelter readiness workflow')">OPEN</button></div></div></div></div>
+</section>
+
+<section class="section" id="contacts">
+ <div class="section-head"><div><h2>Emergency Contact Board</h2><p>Reference emergency channels for operational workflows</p></div></div>
+ <div class="grid4">
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-phone-volume"></i></div><h4>Unified Emergency</h4><p>National emergency response</p><strong style="display:block;font-size:16px;color:var(--green);margin-top:9px">112</strong></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-truck-medical"></i></div><h4>Ambulance</h4><p>Medical response channel</p><strong style="display:block;font-size:16px;color:var(--green);margin-top:9px">108</strong></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-house-flood-water"></i></div><h4>Disaster Helpline</h4><p>Disaster management assistance</p><strong style="display:block;font-size:16px;color:var(--green);margin-top:9px">1078</strong></div>
+  <div class="feature"><div class="feature-icon"><i class="fa-solid fa-fire-extinguisher"></i></div><h4>Fire &amp; Rescue</h4><p>Emergency fire response</p><strong style="display:block;font-size:16px;color:var(--green);margin-top:9px">101</strong></div>
+ </div>
+</section>
+
+<section class="section" id="architecture">
+ <div class="section-head"><div><h2>End-to-End Technology Architecture</h2><p>Deployment roadmap from browser prototype to real sensor network</p></div></div>
+ <div class="card"><div class="card-body"><div class="pipeline">
+  <div class="step"><i class="fa-solid fa-cloud-sun-rain"></i><h4>WEATHER</h4><p>Live API observations</p></div><div class="arrow">→</div>
+  <div class="step"><i class="fa-solid fa-microchip"></i><h4>IOT</h4><p>ESP32 / LoRa / gateways</p></div><div class="arrow">→</div>
+  <div class="step"><i class="fa-solid fa-database"></i><h4>INGESTION</h4><p>REST / MQTT / WebSocket</p></div><div class="arrow">→</div>
+  <div class="step"><i class="fa-solid fa-brain"></i><h4>AI MODEL</h4><p>Risk prediction + explanation</p></div>
+ </div></div></div>
+</section>
+
+<section class="section" id="operations">
+ <div class="section-head"><div><h2>Operational Command Board</h2><p>Expanded V2 situation awareness - connected to the same dashboard state</p></div><span class="tag">V2 OPERATIONS</span></div>
+ <div class="mode-strip">
+  <button class="active" id="modeLiveBtn" onclick="setDataMode('live')"><i class="fa-solid fa-satellite-dish"></i> LIVE MODE</button>
+  <button id="modeDemoBtn" onclick="setDataMode('demo')"><i class="fa-solid fa-flask"></i> DEMO MODE</button>
+  <button onclick="startDisasterScenario()"><i class="fa-solid fa-bolt"></i> START DISASTER SCENARIO</button>
+  <button onclick="resetDisasterScenario()"><i class="fa-solid fa-rotate-left"></i> RESET SCENARIO</button>
+  <button onclick="togglePresentation()"><i class="fa-solid fa-display"></i> PRESENTATION</button>
+  <span class="mode-note" id="modeNote">Live external services enabled; physical sensors require a connected gateway.</span>
+ </div>
+ <div class="demo-banner" id="demoBanner"><b>DEMO / SIMULATION MODE:</b> Sensor, response-unit and incident changes on this dashboard are simulated for presentation. Weather API remains separately labeled according to its actual connection state.</div>
+ <div class="expand-grid">
+  <div class="glass-stat"><div class="mini-label">POPULATION AT RISK</div><h4 id="opsPopulation">33.4K</h4><p>Risk-weighted estimate across monitored zones.</p><div class="trend-up">+6.2% vs previous cycle</div></div>
+  <div class="glass-stat"><div class="mini-label">INFRASTRUCTURE EXPOSURE</div><h4 id="opsInfra">27</h4><p>Roads, bridges, utilities and public assets under watch.</p><div class="trend-up">4 new watch points</div></div>
+  <div class="glass-stat"><div class="mini-label">RESPONSE READINESS</div><h4 id="opsReadiness">86%</h4><p>Available teams, vehicles, shelters and communications.</p><div class="trend-up">Operational</div></div>
+  <div class="glass-stat"><div class="mini-label">MONITORING COVERAGE</div><h4 id="opsCoverage">92%</h4><p>Configured monitoring zones currently reporting.</p><div class="trend-up">Stable</div></div>
+ </div>
+ <div class="ops-detail-grid">
+  <div class="ops-panel"><div class="eyebrow">FIELD COORDINATION</div><h3>Response Dispatch Desk</h3><div class="big" id="dispatchReady">12</div><p>Units currently marked available in the operational roster.</p><div class="ops-actions"><button class="btn" onclick="openDispatchDesk()"><i class="fa-solid fa-truck-fast"></i> DISPATCH UNIT</button><button class="btn" onclick="toast('Response roster refreshed')"><i class="fa-solid fa-rotate"></i> REFRESH ROSTER</button></div></div>
+  <div class="ops-panel"><div class="eyebrow">WARNING MANAGEMENT</div><h3>Alert Triage Desk</h3><div class="big" id="triageCount">07</div><p>Open warning items ordered by severity. Acknowledge or escalate from the warning workflow.</p><div class="ops-actions"><button class="btn" onclick="scrollToId('alerts-v2')"><i class="fa-solid fa-bell"></i> OPEN ALERTS</button><button class="btn" onclick="createIncident()"><i class="fa-solid fa-plus"></i> CREATE INCIDENT</button></div></div>
+  <div class="ops-panel"><div class="eyebrow">SHELTER / LOGISTICS</div><h3>Relief Capacity</h3><div class="big" id="opsShelterCapacity">72%</div><p>Modeled occupancy across the visible shelter board. Check individual centers before dispatching people.</p><div class="ops-actions"><button class="btn" onclick="scrollToId('relief')"><i class="fa-solid fa-house-medical"></i> OPEN SHELTERS</button><button class="btn" onclick="toast('Shelter readiness checklist opened')"><i class="fa-solid fa-list-check"></i> CHECKLIST</button></div></div>
+ </div>
+ </section>
+
+<section class="section" id="live-events">
+ <div class="section-head"><div><h2>Live Environmental Events</h2><p>Fresh external observations that can influence situational awareness</p></div><span class="tag">LIVE FEEDS</span></div>
+ <div class="live-event-strip">
+  <div class="live-event"><h4>USGS EARTHQUAKES</h4><p>Recent seismic events loaded from the public real-time GeoJSON feed.</p><strong id="quakeCount">OFFLINE</strong><span style="font-size:6.5px;color:var(--muted)">events in current India watch window</span></div>
+  <div class="live-event"><h4>MAP ANALYSIS</h4><p id="liveMapEventText"><b>Tawang</b>, Arunachal Pradesh • terrain-aware analysis active</p><strong id="liveMapScore">23/100</strong><span style="font-size:6.5px;color:var(--muted)">current analyzed point</span></div>
+  <div class="live-event"><h4>DATA QUALITY</h4><p>Freshness of external feeds used by the dashboard.</p><strong id="dataFreshness">LIVE</strong><span style="font-size:6.5px;color:var(--muted)">weather + geocoding + seismic</span></div>
+ </div>
+</section>
+
+<section class="section" id="infrastructure">
+ <div class="section-head"><div><h2>Infrastructure Risk Monitor</h2><p>Prioritize roads, bridges, hospitals, schools and utilities near hazard zones</p></div><span class="tag">ASSET RISK</span></div>
+ <div class="command-row">
+  <div class="command-card"><h3>Road Corridors</h3><div class="sub">Priority transport routes</div><div class="command-meter"><i style="width:68%"></i></div><div class="command-item"><span>At risk segments</span><b>14</b></div><div class="command-item"><span>Blocked / restricted</span><b>3</b></div><div class="command-item"><span>Alternative routes</span><b class="status-live">8</b></div></div>
+  <div class="command-card"><h3>Critical Facilities</h3><div class="sub">Hospitals, schools, emergency assets</div><div class="command-list"><div class="command-item"><span>Hospitals</span><b>9 <small class="status-live">safe/watch</small></b></div><div class="command-item"><span>Schools</span><b>22</b></div><div class="command-item"><span>Emergency hubs</span><b>6</b></div></div></div>
+  <div class="command-card"><h3>Utilities &amp; Communications</h3><div class="sub">Power, water, telecom</div><div class="command-list"><div class="command-item"><span>Power assets</span><b>31</b></div><div class="command-item"><span>Water assets</span><b>18</b></div><div class="command-item"><span>Towers</span><b>47</b></div></div></div>
+ </div>
+</section>
+
+<section class="section" id="population-risk">
+ <div class="section-head"><div><h2>Population Risk &amp; Evacuation Intelligence</h2><p>Turn risk into an operational evacuation workload</p></div><span class="tag">DECISION SUPPORT</span></div>
+ <div class="grid2">
+  <div class="card"><div class="card-head"><h3>Evacuation Progress</h3><span id="evacStatus">SIMULATED</span></div><div class="card-body">
+   <div style="display:flex;justify-content:space-between;font-size:8px"><span>Population at risk</span><b id="evacAtRisk">12,450</b></div>
+   <div class="progress-lg" style="margin-top:8px"><i id="evacProgress" style="width:34%"></i></div>
+   <div style="display:flex;justify-content:space-between;font-size:7px;color:var(--muted);margin-top:6px"><span>Evacuated <b id="evacDone">4,200</b></span><span>Remaining <b id="evacRemain">8,250</b></span></div>
+   <div class="priority-grid" style="margin-top:13px"><div class="priority"><b>Priority 1</b><p>High-risk slopes + dense settlements. Immediate route verification.</p></div><div class="priority"><b>Priority 2</b><p>Moderate-risk communities near rainfall accumulation corridors.</p></div></div>
+  </div></div>
+  <div class="card"><div class="card-head"><h3>Vulnerable Population Profile</h3><span>ESTIMATED</span></div><div class="card-body">
+   <div class="grid4"><div class="feature"><div class="feature-icon"><i class="fa-solid fa-child"></i></div><h4>Children</h4><div class="metric">7,840</div></div><div class="feature"><div class="feature-icon"><i class="fa-solid fa-person-cane"></i></div><h4>Elderly</h4><div class="metric">4,120</div></div><div class="feature"><div class="feature-icon"><i class="fa-solid fa-people-arrows"></i></div><h4>High-Risk Communities</h4><div class="metric">18</div></div><div class="feature"><div class="feature-icon"><i class="fa-solid fa-house"></i></div><h4>Shelter Demand</h4><div class="metric">9,600</div></div></div>
+  </div></div>
+ </div>
+</section>
+
+<section class="section" id="relief">
+ <div class="section-head"><div><h2>Relief Center Management</h2><p>Occupancy, capacity, medical support and logistics readiness</p></div><span class="tag">SHELTER OPS</span></div>
+ <div class="resource-grid">
+  <div class="resource"><h4>Shillong Relief Hub</h4><div class="cap">720 / 1,000</div><p>Occupancy • Medical • Food • Water</p><div class="resource-bar"><i style="width:72%"></i></div><p class="status-live">AVAILABLE</p></div>
+  <div class="resource"><h4>Kohima Emergency Shelter</h4><div class="cap">910 / 1,000</div><p>Occupancy • Medical • Backup power</p><div class="resource-bar"><i style="width:91%;background:linear-gradient(90deg,var(--yellow),var(--orange))"></i></div><p style="color:var(--yellow)">NEAR CAPACITY</p></div>
+  <div class="resource"><h4>Tawang Community Center</h4><div class="cap">380 / 650</div><p>Occupancy • Food • Water • Comms</p><div class="resource-bar"><i style="width:58%"></i></div><p class="status-live">AVAILABLE</p></div>
+ </div>
+</section>
+
+<section class="section" id="incidents-v2">
+ <div class="section-head"><div><h2>Incident Management Center</h2><p>Create, assign, escalate and resolve operational incidents</p></div><button class="btn btn-primary" onclick="createIncident()"><i class="fa-solid fa-plus"></i> CREATE INCIDENT</button></div>
+ <div class="card"><div class="card-body">
+  <div class="filter-bar"><input id="incidentSearch" placeholder="Search incident..." oninput="renderIncidentTable()"><select id="incidentFilter" onchange="renderIncidentTable()"><option value="ALL">All statuses</option><option>NEW</option><option>INVESTIGATING</option><option>ACTIVE</option><option>CONTAINED</option><option>RESOLVED</option></select></div>
+  <div class="table-wrap"><table class="data-table v2-table"><thead><tr><th>ID</th><th>LOCATION</th><th>SEVERITY</th><th>STATUS</th><th>TEAM</th><th>UPDATED</th><th></th></tr></thead><tbody id="incidentTable"><tr><td class="state">INC-2041</td><td>Kohima</td><td><span class="pill pill-high">HIGH</span></td><td>ACTIVE</td><td>Rapid Response 03</td><td>2 min ago</td><td><button class="row-action" onclick="advanceIncident('INC-2041')">Advance</button></td></tr><tr><td class="state">INC-2039</td><td>Tawang</td><td><span class="pill pill-mod">WATCH</span></td><td>INVESTIGATING</td><td>Terrain Unit 02</td><td>8 min ago</td><td><button class="row-action" onclick="advanceIncident('INC-2039')">Advance</button></td></tr><tr><td class="state">INC-2037</td><td>Shillong</td><td><span class="pill pill-mod">MODERATE</span></td><td>CONTAINED</td><td>Medical + Rescue</td><td>21 min ago</td><td><button class="row-action" onclick="advanceIncident('INC-2037')">Advance</button></td></tr><tr><td class="state">INC-2032</td><td>Aizawl</td><td><span class="pill pill-mod">LOW</span></td><td>RESOLVED</td><td>Local Authority</td><td>43 min ago</td><td><button class="row-action" onclick="advanceIncident('INC-2032')">Advance</button></td></tr></tbody></table></div>
+ </div></div>
+</section>
+
+<section class="section" id="alerts-v2">
+ <div class="section-head"><div><h2>Warning Workflow &amp; Notification Center</h2><p>Actionable alert lifecycle with acknowledgement and escalation</p></div><button class="btn" onclick="toggleNotificationDrawer()"><i class="fa-solid fa-bell"></i> NOTIFICATIONS <span id="notifBadge">4</span></button></div>
+ <div class="card"><div class="card-body"><div class="timeline-v2" id="warningWorkflow">
+  <div class="timeline-step"><div class="num">01</div><h4>DETECT</h4><p>Risk or sensor anomaly crosses a configured threshold.</p></div>
+  <div class="timeline-step"><div class="num">02</div><h4>VERIFY</h4><p>Check data quality, sensor health and supporting weather evidence.</p></div>
+  <div class="timeline-step"><div class="num">03</div><h4>ACKNOWLEDGE</h4><p>Control room confirms the event and assigns responsibility.</p></div>
+  <div class="timeline-step"><div class="num">04</div><h4>ESCALATE</h4><p>Route to response teams, local authorities and broadcast channels.</p></div>
+  <div class="timeline-step"><div class="num">05</div><h4>RESOLVE</h4><p>Close the alert with timestamp, evidence and incident notes.</p></div>
+ </div></div></div>
+</section>
+
+<section class="section" id="analytics-v2">
+ <div class="section-head"><div><h2>Historical Analytics &amp; Regional Comparison</h2><p>Filters are interactive in the dashboard demo and ready for backend datasets</p></div><span class="tag">ANALYTICS</span></div>
+ <div class="card"><div class="card-body">
+  <div class="filter-bar"><select id="analyticsState" onchange="updateAnalytics()"><option>All States</option><option>Arunachal Pradesh</option><option>Assam</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Sikkim</option><option>Tripura</option></select><select id="analyticsRisk" onchange="updateAnalytics()"><option>All Risk</option><option>Low</option><option>Moderate</option><option>High</option><option>Critical</option></select><select id="analyticsRange" onchange="updateAnalytics()"><option>24 Hours</option><option>7 Days</option><option>30 Days</option><option>Season</option></select><button class="btn" onclick="exportCurrentData('csv')"><i class="fa-solid fa-file-csv"></i> EXPORT CSV</button><button class="btn" onclick="exportCurrentData('json')"><i class="fa-solid fa-file-code"></i> EXPORT JSON</button><button class="btn" onclick="window.print()"><i class="fa-solid fa-print"></i> PRINT</button></div>
+  <div class="grid2"><div class="card"><div class="card-head"><h3>Trend Snapshot</h3><span id="analyticsMeta">ALL STATES • 24 HOURS</span></div><div class="card-body"><div class="chart-box"><canvas id="analyticsChart" style="display: block; box-sizing: border-box; height: 310px; width: 524.7px;" width="787" height="465"></canvas></div></div></div><div class="card"><div class="card-head"><h3>Regional Ranking</h3><span>RISK-WEIGHTED</span></div><div class="card-body"><div class="table-wrap"><table class="data-table"><thead><tr><th>RANK</th><th>REGION</th><th>RISK</th><th>RAIN</th><th>STATUS</th></tr></thead><tbody id="rankingTable"><tr><td>#1</td><td class="state">Kohima</td><td><span class="pill pill-high">64</span></td><td>26.4 mm</td><td>Action</td></tr><tr><td>#2</td><td class="state">Dibrugarh</td><td><span class="pill pill-low">38</span></td><td>11.3 mm</td><td>Monitoring</td></tr><tr><td>#3</td><td class="state">Gangtok</td><td><span class="pill pill-low">36</span></td><td>11.0 mm</td><td>Monitoring</td></tr><tr><td>#4</td><td class="state">Agartala</td><td><span class="pill pill-low">33</span></td><td>8.1 mm</td><td>Monitoring</td></tr><tr><td>#5</td><td class="state">Aizawl</td><td><span class="pill pill-low">30</span></td><td>6.6 mm</td><td>Monitoring</td></tr><tr><td>#6</td><td class="state">Imphal</td><td><span class="pill pill-low">26</span></td><td>4.3 mm</td><td>Monitoring</td></tr><tr><td>#7</td><td class="state">Shillong</td><td><span class="pill pill-low">24</span></td><td>3.8 mm</td><td>Monitoring</td></tr><tr><td>#8</td><td class="state">Tawang</td><td><span class="pill pill-low">23</span></td><td>2.7 mm</td><td>Monitoring</td></tr></tbody></table></div></div></div></div>
+ </div></div>
+</section>
+
+<section class="section" id="system-v2">
+ <div class="section-head"><div><h2>System Health &amp; Connection Monitor</h2><p>Do not infer LIVE status from page load - each subsystem has a visible state</p></div><button class="btn" onclick="runHealthCheck()"><i class="fa-solid fa-heart-pulse"></i> RUN HEALTH CHECK</button></div>
+ <div class="health-grid" id="healthGrid">
+  <div class="health-node"><div class="health-top"><span class="mini-label">WEATHER API</span><b id="h-weather" class="status-live">CONNECTED</b></div><h4>Open-Meteo</h4><p>Forecast + current conditions</p><div class="latency" id="lat-weather">Measured by client request</div></div>
+  <div class="health-node"><div class="health-top"><span class="mini-label">MAP SERVICE</span><b class="status-live">AVAILABLE</b></div><h4>OpenStreetMap</h4><p>Leaflet tiles + geospatial search</p><div class="latency">Tile status: monitored</div></div>
+  <div class="health-node"><div class="health-top"><span class="mini-label">WEBSOCKET</span><b id="h-ws" class="status-demo">DEMO</b></div><h4>Realtime transport</h4><p>Socket.IO event channel placeholder</p><div class="latency">Ready for backend</div></div>
+  <div class="health-node"><div class="health-top"><span class="mini-label">MQTT</span><b class="status-demo">NOT CONFIGURED</b></div><h4>Sensor broker</h4><p>MQTT topic architecture available</p><div class="latency">Awaiting broker URL</div></div>
+  <div class="health-node"><div class="health-top"><span class="mini-label">BACKEND</span><b class="status-demo">READY</b></div><h4>Node / Express</h4><p>REST API integration layer</p><div class="latency">Demo frontend fallback</div></div>
+  <div class="health-node"><div class="health-top"><span class="mini-label">DATABASE</span><b class="status-demo">READY</b></div><h4>PostgreSQL</h4><p>Historical storage schema</p><div class="latency">Not connected in static mode</div></div>
+  <div class="health-node"><div class="health-top"><span class="mini-label">AI ENGINE</span><b class="status-live">OPERATIONAL</b></div><h4>Risk scoring</h4><p>Explainable prototype scoring</p><div class="latency">Local computation</div></div>
+  <div class="health-node"><div class="health-top"><span class="mini-label">NOTIFICATION</span><b class="status-demo">SIMULATED</b></div><h4>Alert channels</h4><p>SMS / email / push integration hooks</p><div class="latency">Presentation safe</div></div>
+ </div>
+</section>
+
+</div>
+
+<footer class="footer"><span>NER-Landslide AI • SIH-style full command-center prototype</span><span id="footerStatus">Live weather connected • 9:49:02 am</span></footer>
+</main>
+
+<button class="chat-toggle" onclick="toggleChat()" title="Open AI Assistant"><i class="fa-solid fa-robot"></i></button>
+<div class="chat-panel" id="chatPanel">
+ <div class="chat-head"><div><h3>NER Landslide AI Assistant</h3><p>Dashboard-aware assistant • no API key required</p></div><button class="chat-close" onclick="closeChat()" aria-label="Close AI assistant">×</button></div>
+ <div class="chat-context" id="chatContext"><span>📍 Tawang</span><span>Risk 44/100</span><span>Weather OFFLINE</span><span>8 stations</span><em class="chat-status">AI READY</em></div><div class="chat-suggest"><b>Try:</b> "Why is Kohima risky?" · "Search London" · "What about rainfall there?" · "Give me the response plan" · "Generate report"</div>
+ <div class="chat-actions"><button type="button" onclick="clearChat()"><i class="fa-solid fa-broom"></i> Clear chat</button><button type="button" onclick="answerChat('Give me a current report')"><i class="fa-solid fa-file-lines"></i> Quick report</button></div>
+ <div class="chat-messages" id="chatMessages"><div class="chat-msg bot">Hey bhai 👋 <b>Kaise ho?</b> Main NER-Landslide AI hoon. Normal baat bhi kar sakte ho aur dashboard bhi control/analyze kar sakte ho. Jaise: <b>"Kohima ka risk kya hai?"</b>, <b>"wahan baarish kitni hai?"</b>, <b>"kyu?"</b>, <b>"ab kya karna chahiye?"</b> ya bas <b>"hello"</b>.</div></div>
+ <div class="quick-row">
+  <button onclick="quickAsk('Current risk?')">Current risk</button>
+  <button onclick="quickAsk('Rainfall?')">Rainfall</button>
+  <button onclick="quickAsk('Wind speed?')">Wind</button>
+  <button onclick="quickAsk('Highest risk?')">Highest risk</button>
+  <button onclick="quickAsk('Is API live?')">API status</button>
+ </div>
+ <div class="chat-utility"><span id="chatMood">● Ready for conversation</span><button type="button" onclick="clearChat()"><i class="fa-solid fa-eraser"></i> Clear chat</button><button type="button" onclick="answerChat('Generate a current situation report')"><i class="fa-solid fa-file-lines"></i> Quick report</button></div>
+ <form class="chat-form" onsubmit="sendChat(event)"><input id="chatInput" placeholder="Ask about the dashboard..." autocomplete="off"><button><i class="fa-solid fa-paper-plane"></i></button></form>
+</div>
+
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastText">Location not found</span></div>
+
+<div class="modal-bg" id="aboutModal" onclick="if(event.target===this)closeAbout()">
+ <div class="modal"><div class="modal-head"><h3>System Information</h3><button class="close" onclick="closeAbout()">×</button></div>
+ <div class="modal-body">
+  <b>Live weather:</b> This browser-only version fetches weather data from Open-Meteo. Their forecast API supports multiple coordinates in one request and provides current/hourly weather variables. The dashboard refreshes its API feed every 60 seconds and displays an explicit API health state.<br><br>
+  <b>IoT telemetry:</b> Sensor cards intentionally use a visible demo stream until real ESP32/LoRa/MQTT/REST/WebSocket data is connected. They are not presented as physical sensor readings.<br><br>
+  <b>Map:</b> Leaflet renders OpenStreetMap tiles. The search box uses OpenStreetMap Nominatim search. Internet access is required for external libraries, map tiles and live API data.
+ </div></div>
+</div>
+
+
+
+<div class="palette-bg" id="paletteBg" onclick="if(event.target===this)closePalette()">
+ <div class="palette"><input id="paletteInput" placeholder="Type a command... (Ctrl + K)" oninput="filterPalette()"><div class="palette-list" id="paletteList">
+  <div class="palette-item" onclick="paletteGo('risk-map')"><i class="fa-solid fa-map"></i> Open live risk map</div>
+  <div class="palette-item" onclick="paletteGo('sensors')"><i class="fa-solid fa-microchip"></i> Open sensor center</div>
+  <div class="palette-item" onclick="paletteGo('alerts-v2')"><i class="fa-solid fa-bell"></i> Open warning workflow</div>
+  <div class="palette-item" onclick="paletteGo('incidents-v2')"><i class="fa-solid fa-clipboard-list"></i> Open incidents</div>
+  <div class="palette-item" onclick="runAI();closePalette()"><i class="fa-solid fa-brain"></i> Run AI prediction</div>
+  <div class="palette-item" onclick="startDisasterScenario();closePalette()"><i class="fa-solid fa-bolt"></i> Start disaster scenario</div>
+  <div class="palette-item" onclick="exportCurrentData('json');closePalette()"><i class="fa-solid fa-download"></i> Export JSON</div>
+  <div class="palette-item" onclick="togglePresentation();closePalette()"><i class="fa-solid fa-display"></i> Presentation mode</div>
+ </div></div>
+</div>
+
+<div class="drawer-bg" id="notifDrawerBg" onclick="if(event.target===this)toggleNotificationDrawer(false)"><aside class="drawer"><div class="drawer-head"><h3>Notification Center</h3><button class="close" onclick="toggleNotificationDrawer(false)">×</button></div>
+ <div class="drawer-card"><h4><span class="status-live">CRITICAL RISK</span> • Kohima</h4><p>AI risk crossed the HIGH threshold. Review evacuation readiness and confirm sensor health.</p></div>
+ <div class="drawer-card"><h4><span style="color:var(--yellow)">SENSOR WARNING</span> • GNSS-TAW-11</h4><p>Ground displacement is above the configured warning baseline.</p></div>
+ <div class="drawer-card"><h4><span style="color:var(--blue)">WEATHER UPDATE</span></h4><p>Rainfall forecast has been synchronized with the selected monitoring station.</p></div>
+ <div class="drawer-card"><h4><span style="color:var(--orange)">SHELTER CAPACITY</span></h4><p>Kohima Emergency Shelter is approaching its modeled capacity.</p></div>
+ <button class="btn" style="margin-top:12px;width:100%" onclick="markNotificationsRead()"><i class="fa-solid fa-check-double"></i> MARK ALL READ</button>
+ </aside></div>
+
+<div class="modal-bg" id="scenarioModal" onclick="if(event.target===this)closeScenario()">
+ <div class="modal"><div class="modal-head"><h3>Disaster Scenario Active</h3><button class="close" onclick="closeScenario()">×</button></div>
+ <div class="modal-body"><b id="scenarioTitle">Monsoon escalation simulation</b><br><br>
+  Heavy rainfall is being simulated across a selected NER corridor. The dashboard is updating risk, population exposure, alerts, evacuation progress and response readiness as a coordinated presentation scenario.<br><br>
+  <div class="priority-grid"><div class="priority"><b>Step 1 - Environmental stress</b><p>Rainfall, soil saturation and ground movement are increased.</p></div><div class="priority"><b>Step 2 - Risk response</b><p>AI score and confidence indicators update with the simulated inputs.</p></div><div class="priority"><b>Step 3 - Alerts</b><p>A high-priority warning and incident are generated in the UI.</p></div><div class="priority"><b>Step 4 - Operations</b><p>Evacuation demand and response readiness change for demonstration.</p></div></div>
+ </div></div>
+</div>
+
+<script>
+const LOCATIONS=[
+ {name:"Tawang",state:"Arunachal Pradesh",lat:27.586,lon:91.859},
+ {name:"Gangtok",state:"Sikkim",lat:27.3389,lon:88.6065},
+ {name:"Shillong",state:"Meghalaya",lat:25.5788,lon:91.8933},
+ {name:"Aizawl",state:"Mizoram",lat:23.7271,lon:92.7176},
+ {name:"Kohima",state:"Nagaland",lat:25.6751,lon:94.1086},
+ {name:"Imphal",state:"Manipur",lat:24.817,lon:93.9368},
+ {name:"Agartala",state:"Tripura",lat:23.8315,lon:91.2868},
+ {name:"Dibrugarh",state:"Assam",lat:27.4728,lon:94.912}
+];
+
+let map=null,markers=[],mapLayer="risk",weatherData=[],selectedIndex=0,lastApiAt=null,lastApiOk=false,lastLatency=null;
+let baseMap=null,satelliteMap=null,satelliteOn=true,searchedMarker=null,searchedCircle=null,lastSearchedPlace=null,heatCircles=[]; let selectedAnalysis=null; let suggestionTimer=null;
+let risk=0,soil=0,movement=0,seismic=24;
+let riskChart=null,distributionChart=null,labels=[],rainHistory=[],riskHistory=[];
+
+const $=id=>document.getElementById(id);
+const nowTime=()=>new Date().toLocaleTimeString();
+function scrollToId(id){$(id)?.scrollIntoView({behavior:"smooth"})}
+function toast(msg){$("toastText").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2200)}
+function updateClock(){$("clock").textContent=nowTime()}setInterval(updateClock,1000);updateClock();
+
+function weatherMeta(code){
+ if(code===0)return["Clear sky","fa-sun","clear"];
+ if([1,2,3].includes(code))return["Partly cloudy","fa-cloud-sun","clear"];
+ if([45,48].includes(code))return["Fog","fa-smog","storm"];
+ if([51,53,55,56,57].includes(code))return["Drizzle","fa-cloud-rain","rain"];
+ if([61,63,65,66,67,80,81,82].includes(code))return["Rain showers","fa-cloud-showers-heavy","rain"];
+ if([71,73,75,77,85,86].includes(code))return["Snow","fa-snowflake","storm"];
+ if([95,96,99].includes(code))return["Thunderstorm","fa-cloud-bolt","storm"];
+ return["Cloudy","fa-cloud","clear"];
+}
+function riskColor(v){return v>=80?"#941f2a":v>=60?"#ff5363":v>=40?"#ffc04f":"#1bdd90"}
+function riskClass(v){return v>=80?"critical":v>=60?"high":v>=40?"moderate":"low"}
+
+async function fetchWeather(){
+ const start=performance.now();
+ $("sideStatus").textContent="Connecting to live weather...";
+ try{
+  // One multi-location request keeps browser-side connectivity simple and fast.
+  const lat=LOCATIONS.map(x=>x.lat).join(",");
+  const lon=LOCATIONS.map(x=>x.lon).join(",");
+  const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&hourly=precipitation&past_days=1&forecast_days=1&timezone=auto`;
+  const response=await fetch(url,{cache:"no-store"});
+  if(!response.ok)throw new Error(`HTTP ${response.status}`);
+  const json=await response.json();
+  const arr=Array.isArray(json)?json:[json];
+  if(arr.length!==LOCATIONS.length)throw new Error("Unexpected API response");
+
+  weatherData=arr.map((d,i)=>{
+   const c=d.current||{};
+   const hourly=Array.isArray(d.hourly?.precipitation)?d.hourly.precipitation:[];
+   const recent=hourly.slice(Math.max(0,hourly.length-24));
+   const rain24=recent.reduce((sum,v)=>sum+(Number(v)||0),0);
+   const temp=Number(c.temperature_2m??0);
+   const hum=Number(c.relative_humidity_2m??0);
+   const wind=Number(c.wind_speed_10m??0);
+   const rainNow=Number(c.precipitation??0);
+   const rainScore=Math.min(100,rain24*2.8+rainNow*12);
+   const soilProxy=Math.round(Math.max(18,Math.min(96,hum*.72)));
+   const moveIndex=Math.round(Math.max(10,Math.min(90,20+rainScore*.2+(wind>28?9:0))));
+   const riskValue=Math.round(Math.min(100,rainScore*.48+soilProxy*.27+moveIndex*.15+seismic*.10));
+   return {temp,hum,wind,rainNow,rain24,code:Number(c.weather_code??0),soil:soilProxy,move:moveIndex,risk:riskValue};
+  });
+
+  lastApiOk=true;lastApiAt=new Date();lastLatency=Math.round(performance.now()-start);
+  $("apiState").textContent="ONLINE";$("apiState").style.color="var(--green)";
+  $("apiLatency").textContent=lastLatency+" ms response";
+  $("healthWeather").textContent="CONNECTED";$("healthWeather").style.color="var(--green)";
+  $("healthLatency").textContent=lastLatency+" ms";$("healthSync").textContent=lastApiAt.toLocaleTimeString();
+  $("mapSync").textContent=lastApiAt.toLocaleTimeString();
+  $("weatherUpdated").textContent=lastApiAt.toLocaleTimeString();
+  $("sideStatus").textContent="Live weather API connected";
+  $("footerStatus").textContent="Live weather connected • "+lastApiAt.toLocaleTimeString();
+  renderAll();
+ }catch(error){
+  lastApiOk=false;
+  $("apiState").textContent="OFFLINE";$("apiState").style.color="var(--red)";
+  $("apiLatency").textContent="Retrying automatically";
+  $("healthWeather").textContent="OFFLINE";$("healthWeather").style.color="var(--red)";
+  $("sideStatus").textContent="Weather API unavailable";
+  $("footerStatus").textContent="Weather API unavailable • demo stream remains active";
+  if(!weatherData.length)useDemoData();
+  renderAll();
+  console.warn("Open-Meteo connection error:",error);
+ }
+}
+function useDemoData(){
+ weatherData=LOCATIONS.map((l,i)=>({temp:15+i*1.2,hum:68+i,rainNow:.2,rain24:20+i*3.2,wind:8+i,code:i%3===0?61:2,soil:62+i,move:25+i*2,risk:44+i*4}));
+}
+
+function renderAll(){
+ renderWeather();renderTables();updateRisk();updateMapMarkers();updateCharts();renderSensors();renderAlerts();renderTimeline();updateScenario();
+ if(typeof renderRanking==="function")renderRanking();
+ if(typeof updateAnalytics==="function")updateAnalytics();
+ if(typeof renderHazardRadar==="function")renderHazardRadar();
+ if(typeof refreshActionPlanner==="function")refreshActionPlanner();
+}
+
+function changeStation(value){
+ selectedIndex=Number(value); const l=LOCATIONS[selectedIndex]; selectedAnalysis=null; lastSearchedPlace=null; if(map)map.flyTo([l.lat,l.lon],10,{duration:1});
+ renderWeather();updateRisk();updateCharts();renderSensors();renderAlerts();toast(l.name+" selected");
+}
+function renderWeather(){
+ const d=weatherData[selectedIndex];if(!d)return;
+ const l=LOCATIONS[selectedIndex],meta=weatherMeta(d.code);
+ $("stationTitle").textContent=l.name+" Weather Station";$("stationState").textContent=l.state;
+ $("coords").textContent=`${l.lat.toFixed(4)}° N, ${l.lon.toFixed(4)}° E`;
+ $("temperature").textContent=Math.round(d.temp)+"°";
+ $("condition").textContent=meta[0]+" • "+(lastApiOk?"LIVE API":"DEMO");
+ $("weatherIcon").className="fa-solid "+meta[1];
+ $("wind").textContent=d.wind.toFixed(1)+" km/h";$("humidity").textContent=Math.round(d.hum)+"%";
+ $("rainNow").textContent=d.rainNow.toFixed(1)+" mm";$("rain24").textContent=d.rain24.toFixed(1)+" mm";
+ $("weatherCard").classList.toggle("rain",meta[2]==="rain");
+ document.body.classList.toggle("rain-bg",meta[2]==="rain");document.body.classList.toggle("storm-bg",meta[2]==="storm");
+}
+
+
+function updateConfidence(){
+  const base=weatherData[selectedIndex]||{};
+  const d=selectedAnalysis?.data||base;
+  const slope=Number(selectedAnalysis?.slopeDeg??0);
+  const relief=Number(selectedAnalysis?.relief??0);
+  const hasWeather=Number.isFinite(Number(d.temp))&&Number.isFinite(Number(d.hum))&&Number.isFinite(Number(d.wind))&&Number.isFinite(Number(d.rain24));
+  const freshness=lastApiOk&&lastApiAt?Math.max(0,1-((Date.now()-lastApiAt.getTime())/300000)):0;
+  const completeness=hasWeather?0.96:0.62;
+  const terrainEvidence=selectedAnalysis?(slope>8?0.98:slope>4?0.91:relief>120?0.84:0.68):0.72;
+  const seismicEvidence=Math.max(0,Math.min(1,1-Math.abs(Number(seismic)-24)/80));
+  const sensorEvidence=0.70; // physical sensor gateway is not connected in this browser build
+  let score=100*(0.34*(freshness||0.15)+0.25*completeness+0.18*terrainEvidence+0.12*seismicEvidence+0.11*sensorEvidence);
+  if(selectedAnalysis) score+=4;
+  score=Math.max(58,Math.min(98,score));
+  const value=score.toFixed(1)+"%";
+  const el=$('confidence'); if(el) el.textContent=value;
+  const meta=$('confidenceMeta'); if(meta) meta.textContent=(lastApiOk?"Evidence model • live weather":"Evidence model • API offline")+(selectedAnalysis?" • searched terrain":" • station profile");
+  const quality=$('dataQualityScore'); if(quality) quality.textContent=Math.round(score)+"%";
+  const confidenceRing=$('confidenceBar'); if(confidenceRing) confidenceRing.style.width=score+"%";
+  return score;
+}
+function updateRisk(){
+ const base=weatherData[selectedIndex];if(!base)return;
+ const d=selectedAnalysis?selectedAnalysis.data:base;
+ risk=selectedAnalysis?Number(selectedAnalysis.risk):Number(base.risk); soil=Number(d.soil??base.soil); movement=Number(d.move??base.move);
+ const locationName=selectedAnalysis?.name || LOCATIONS[selectedIndex].name;
+ const locationState=selectedAnalysis?.state || LOCATIONS[selectedIndex].state;
+ if($('riskLocation')) $('riskLocation').textContent=`Selected analysis: ${locationName}, ${locationState}`;
+ $('riskScore').textContent=risk;
+ $('rainFactor').textContent=Math.round(Math.min(100,Number(d.rain24||0)*2.35))+"%";
+ $('soilFactor').textContent=soil+"%"; $('moveFactor').textContent=movement+"%"; $('seisFactor').textContent=seismic+"%";
+ $('rainBar').style.width=Math.min(100,Number(d.rain24||0)*2.35)+"%"; $('soilBar').style.width=soil+"%"; $('moveBar').style.width=movement+"%"; $('seisBar').style.width=seismic+"%";
+ const deg=risk*3.6,col=riskColor(risk); $('riskCircle').style.background=`conic-gradient(${col} 0deg ${deg}deg,#24394e ${deg}deg 360deg)`;
+ $('riskLabel').textContent=risk>=80?"CRITICAL RISK":risk>=60?"HIGH RISK":risk>=40?"MODERATE RISK":"LOW RISK";
+ $('riskStatus').textContent=risk>=80?"EVACUATION REVIEW":risk>=60?"ACTION ADVISED":risk>=40?"INCREASE MONITORING":"MONITOR";
+ if(selectedAnalysis){
+   const terrain=selectedAnalysis.terrainLabel||'terrain analyzed';
+   const terrainReason=Number(selectedAnalysis.slopeDeg||0)<2.5?'Low-relief terrain suppresses the landslide score.':Number(selectedAnalysis.slopeDeg||0)<6?'Gentle slope provides limited susceptibility.':`Slope/relief increases susceptibility (${Number(selectedAnalysis.slopeDeg||0).toFixed(1)}°).`;
+   $('riskExplanation').textContent=`${locationName} is ${riskClass(risk).toUpperCase()} for this landslide-focused estimate. Main drivers: rainfall ${Number(d.rain24||0).toFixed(1)} mm/24h, humidity ${Math.round(d.hum||0)}%, estimated slope ${Number(selectedAnalysis.slopeDeg||0).toFixed(1)}°, relief ${Number(selectedAnalysis.relief||0).toFixed(0)} m. ${terrainReason} This is an AI/demo estimate.`;
+ } else {
+   $('riskExplanation').textContent=risk>=60?`${locationName} is currently ${riskClass(risk).toUpperCase()}. Rainfall, moisture and movement indicators are elevated; verify supporting evidence before escalation.`:`${locationName} is currently ${riskClass(risk).toUpperCase()}. Weather-driven indicators are below the high-risk threshold; continuous monitoring is active.`;
+ }
+ $('riskTime').textContent=nowTime();
+ updateConfidence();
+ $('population').textContent=(30.8+risk*.11).toFixed(1)+"K";
+}
+function renderTables(){
+ const wt=$("weatherTable"),st=$("stateTable");wt.innerHTML="";st.innerHTML="";
+ weatherData.forEach((d,i)=>{
+  const l=LOCATIONS[i],cl=riskClass(d.risk),meta=weatherMeta(d.code);
+  wt.innerHTML+=`<tr onclick="changeStation(${i})" style="cursor:pointer"><td class="state">${l.name}</td><td>${d.temp.toFixed(1)}°C</td><td>${d.wind.toFixed(1)}</td><td>${d.rain24.toFixed(1)}</td><td><span class="pill pill-${cl}">${d.risk}</span></td><td>→</td></tr>`;
+  st.innerHTML+=`<tr><td class="state">${l.name}</td><td>${l.state}</td><td>${meta[0]}</td><td>${d.rain24.toFixed(1)} mm</td><td>${d.wind.toFixed(1)} km/h</td><td><span class="pill pill-${cl}">${d.risk}/100</span></td><td>${d.risk>=80?"⚠ Critical":d.risk>=60?"⚠ Action":"● Monitoring"}</td></tr>`;
+ });
+ $("activeAlerts").textContent=weatherData.filter(d=>d.risk>=60).length+4;
+}
+function initMap(){
+ map=L.map("map",{zoomControl:true,preferCanvas:true}).setView([25.7,91.9],6);
+ baseMap=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"});
+ satelliteMap=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"© Esri, Maxar, Earthstar Geographics"});
+ satelliteMap.addTo(map); satelliteOn=true;
+ $("healthMap").textContent="Satellite loaded"; updateMapMarkers();
+}
+function toggleSatellite(){
+ if(!map)return;
+ const btn=$("satelliteBtn");
+ if(satelliteOn){ map.removeLayer(satelliteMap); baseMap.addTo(map); satelliteOn=false; btn.classList.remove('active'); btn.innerHTML='<i class="fa-solid fa-map"></i> STREET MAP'; toast('Street map enabled'); }
+ else { map.removeLayer(baseMap); satelliteMap.addTo(map); satelliteOn=true; btn.classList.add('active'); btn.innerHTML='<i class="fa-solid fa-satellite"></i> SATELLITE'; toast('Satellite mode enabled'); }
+}
+function locateMe(){
+ if(!navigator.geolocation){toast('Live location is not supported by this browser');return;}
+ $("mapSearchStatus").innerHTML='<i class="fa-solid fa-location-crosshairs fa-spin"></i> Requesting your live browser location…';
+ navigator.geolocation.getCurrentPosition(async pos=>{
+   const lat=pos.coords.latitude,lng=pos.coords.longitude;
+   await analyzeMapPoint(lat,lng,'Your live location',true);
+ },()=>{
+   $("mapSearchStatus").textContent='Location permission denied or unavailable.';toast('Live location unavailable');
+ });
+}
+function markerIcon(color){
+ return L.divIcon({className:"",html:`<div style="width:20px;height:20px;border-radius:50%;background:${color};border:3px solid #fff;box-shadow:0 0 0 5px rgba(38,219,232,.11),0 0 24px ${color};animation:pulse 1.7s infinite"></div>`,iconSize:[20,20],iconAnchor:[10,10]});
+}
+function updateMapMarkers(){
+ if(!map)return;
+ markers.forEach(m=>map.removeLayer(m));markers=[];heatCircles.forEach(c=>map.removeLayer(c));heatCircles=[];
+ const heatLayer=[];
+ LOCATIONS.forEach((l,i)=>{
+  const d=weatherData[i]||{risk:0,rain24:0,wind:0,temp:0};
+  const metric=mapLayer==="rain"?Math.min(100,d.rain24*2.8):mapLayer==="wind"?Math.min(100,d.wind*2):mapLayer==="sensor"?65:mapLayer==="stations"?35:d.risk;
+  const color=mapLayer==="sensor"?"#55a6ff":mapLayer==="stations"?"#9a7dff":riskColor(metric);
+  const marker=L.marker([l.lat,l.lon],{icon:markerIcon(color),title:`${l.name} • ${d.risk}/100`}).addTo(map);
+  marker.on("click",()=>changeStation(i));
+  marker.bindPopup(`<div style="font-family:Inter,sans-serif;min-width:210px"><b>${l.name}, ${l.state}</b><hr><b style="color:${color}">AI Risk ${d.risk}/100</b><br>Rain 24h ${Number(d.rain24||0).toFixed(1)} mm<br>Wind ${Number(d.wind||0).toFixed(1)} km/h<br>Humidity ${Math.round(d.hum||0)}%<br><span style="color:#1ad99f">● ${lastApiOk?"LIVE WEATHER":"DEMO WEATHER"}</span></div>`);
+  markers.push(marker);
+  if(mapLayer==='risk'){
+    const c=L.circle([l.lat,l.lon],{radius:Math.max(8500,18000*(d.risk/100)),stroke:false,fillColor:color,fillOpacity:.12,className:'map-heat'}).addTo(map); heatLayer.push(c);
+  }
+ });
+ heatCircles=heatLayer;
+}
+async function fetchTerrainProfile(lat,lng){
+ const d=0.02; const pts=[[lat,lng],[lat+d,lng],[lat-d,lng],[lat,lng+d],[lat,lng-d]];
+ const qLat=pts.map(x=>x[0]).join(','); const qLon=pts.map(x=>x[1]).join(',');
+ const r=await fetch(`https://api.open-meteo.com/v1/elevation?latitude=${qLat}&longitude=${qLon}`,{cache:'no-store'}); if(!r.ok)throw new Error('elevation');
+ const j=await r.json(); const e=(j.elevation||[]).map(Number); if(e.length<5)throw new Error('elevation-shape');
+ const center=e[0], max=Math.max(...e), min=Math.min(...e), relief=max-min, horizontal=2220;
+ const slopeDeg=Math.atan(relief/horizontal)*180/Math.PI;
+ return {elev:center,relief:Math.round(relief),slopeDeg:Number(slopeDeg.toFixed(1)),elevations:e};
+}
+function terrainProfileFallback(elev){const e=Number(elev||180);return {elev:e,relief:e<250?18:e<500?65:130,slopeDeg:e<250?0.8:e<500?3.2:e<900?7.5:12.5};}
+function terrainLabel(t){const s=Number(t.slopeDeg||0);if(s<2.5)return {label:'LOW-RELIEF / LOW SUSCEPTIBILITY',key:'low'};if(s<6)return {label:'GENTLE SLOPE / MODERATE SUSCEPTIBILITY',key:'moderate'};if(s<12)return {label:'SLOPED TERRAIN / ELEVATED SUSCEPTIBILITY',key:'high'};return {label:'STEEP TERRAIN / HIGH SUSCEPTIBILITY',key:'critical'};}
+function riskFromPoint(w,elev,terrain){
+ const t=terrain||terrainProfileFallback(elev), rain24=Number(w.rain24||0), rainNow=Number(w.rainNow||0), hum=Number(w.hum||60), wind=Number(w.wind||0);
+ const rainfallStress=Math.min(100,rain24*2.35+rainNow*11), moisture=Math.max(10,Math.min(96,hum*.70));
+ const movement=Math.max(8,Math.min(90,18+rainfallStress*.14+(wind>30?8:0)));
+ const slope=Math.max(0,Math.min(100,(Number(t.slopeDeg)||0)*7.2)); const terrainBoost=(Number(t.relief)||0)>500?12:(Number(t.relief)||0)>200?6:2;
+ const susceptibility=Math.min(100,slope+terrainBoost); let score=Math.round(rainfallStress*.46+moisture*.16+movement*.10+susceptibility*.28);
+ if(t.slopeDeg<2.5)score=Math.min(score,22); else if(t.slopeDeg<6)score=Math.min(score,44); else if(t.slopeDeg<12)score=Math.min(score,69);
+ const terrainInfo=terrainLabel(t);
+ return {risk:score,rain24,rainNow,hum,wind,temp:Number(w.temp||0),soil:Math.round(moisture),move:Math.round(movement),elev:t.elev||null,relief:t.relief||0,slopeDeg:t.slopeDeg||0,susceptibility:Math.round(susceptibility),terrainLabel:terrainInfo.label,terrainKey:terrainInfo.key};
+}
+async function fetchPointWeather(lat,lng){
+ const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&hourly=precipitation&past_days=1&forecast_days=1&timezone=auto`;
+ const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(`weather ${r.status}`);const d=await r.json();
+ const arr=Array.isArray(d.hourly?.precipitation)?d.hourly.precipitation:[];const recent=arr.slice(Math.max(0,arr.length-24));
+ return {temp:d.current?.temperature_2m||0,hum:d.current?.relative_humidity_2m||0,rainNow:d.current?.precipitation||0,wind:d.current?.wind_speed_10m||0,rain24:recent.reduce((a,v)=>a+(Number(v)||0),0)};
+}
+async function analyzeMapPoint(lat,lng,label,isLive=false){
+ try{
+  $("mapSearchStatus").innerHTML=`<i class="fa-solid fa-circle-notch fa-spin"></i> Checking terrain + weather for <b>${escapeChat(label)}</b>…`;
+  const weather=await fetchPointWeather(lat,lng).catch(()=>({temp:0,hum:65,rainNow:0,rain24:0,wind:0}));
+  let terrain; try{terrain=await fetchTerrainProfile(lat,lng)}catch{terrain=terrainProfileFallback(null)}
+  const r=riskFromPoint(weather,terrain.elev,terrain), cls=riskClass(r.risk), color=riskColor(r.risk);
+  if(searchedMarker)map.removeLayer(searchedMarker); if(searchedCircle)map.removeLayer(searchedCircle);
+  searchedMarker=L.marker([lat,lng],{icon:markerIcon(color),zIndexOffset:2000}).addTo(map);
+  searchedCircle=L.circle([lat,lng],{radius:Math.max(1400,22000*(r.risk/100)),color,fillColor:color,weight:2,fillOpacity:.14}).addTo(map);
+  searchedMarker.bindPopup(`<div style="font-family:Inter,sans-serif;min-width:275px"><b>${escapeChat(label)}</b><hr><b style="font-size:17px;color:${color}">${r.risk}/100 • ${cls.toUpperCase()}</b><br><span style="color:#6ee6ca">Landslide susceptibility: ${escapeChat(r.terrainLabel)}</span><br><br>Rain ${r.rainNow.toFixed(1)} mm now • ${r.rain24.toFixed(1)} mm / 24h<br>Humidity ${Math.round(r.hum)}% • Wind ${r.wind.toFixed(1)} km/h<br>Elevation ${Number(r.elev||0).toFixed(0)} m • Relief ${Number(r.relief||0).toFixed(0)} m<br>Estimated local slope ${Number(r.slopeDeg||0).toFixed(1)}°<br><small>${isLive?'LIVE LOCATION':'SEARCHED LOCATION'} • AI/demo estimate</small></div>`).openPopup();
+  map.flyTo([lat,lng],13,{duration:1.2}); lastSearchedPlace={name:label,lat,lng,risk:r.risk,riskClass:cls,...r}; selectedAnalysis={name:label.split(',')[0],state:label.split(',').slice(1,3).join(', ').trim()||'India',data:r,risk:r.risk,...r};
+  $("searchedRiskBadge").textContent=`${r.risk}/100 ${cls.toUpperCase()}`;$("searchedRiskBadge").className=`search-risk ${cls}`;
+  $("mapSearchStatus").innerHTML=`<span><i class="fa-solid fa-location-dot"></i> <b>${escapeChat(label)}</b> • ${lat.toFixed(4)}, ${lng.toFixed(4)}</span><span class="status-good">${isLive?'LIVE LOCATION':'LOCATION ANALYZED'}</span>`;
+  $("mapInsight").innerHTML=`<b>${escapeChat(label)} — landslide analysis:</b> <b>${r.risk}/100 (${cls.toUpperCase()})</b>. Terrain: <b>${escapeChat(r.terrainLabel)}</b>; estimated slope <b>${r.slopeDeg.toFixed(1)}°</b>, relief <b>${r.relief} m</b>. Weather stress: rain ${r.rain24.toFixed(1)} mm/24h, humidity ${Math.round(r.hum)}%. ${r.slopeDeg<2.5?'Low-relief terrain keeps the landslide score low even when weather stress rises.':''} <b>This is an AI/demo estimate</b>; verify against official hazard data before operational decisions.`;
+  updateRisk(); refreshActionPlanner(); renderHazardRadar(); toast(`${label}: ${r.risk}/100 ${cls.toUpperCase()}`); updateChatContext(); return lastSearchedPlace;
+ }catch(e){$("mapSearchStatus").textContent='Could not calculate this location right now — check internet and try again.';toast('Location analysis failed');console.warn(e);return null;}
+}
+async function suggestPlaces(q){
+ if(!q || q.trim().length<2){ hideSearchSuggestions(); return; }
+ try{
+   const url="https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&addressdetails=1&countrycodes=in&q="+encodeURIComponent(q.trim());
+   const r=await fetch(url,{cache:'no-store',headers:{"Accept":"application/json","Accept-Language":"en"}});
+   if(!r.ok)throw new Error('suggest');
+   const places=await r.json();
+   const box=$('searchSuggestions'); if(!box)return;
+   if(!places.length){box.innerHTML='<div class="suggestion"><i class="fa-solid fa-circle-info"></i><div><b>No Indian place found</b><span>Try city, district, village, PIN or landmark</span></div></div>';box.classList.add('show');return;}
+   box.innerHTML=places.map((p,i)=>{const name=p.display_name.split(',')[0];const sub=p.display_name.split(',').slice(1,4).join(',');return `<div class="suggestion" role="option" onclick="chooseSuggestion(${i})"><i class="fa-solid fa-location-dot"></i><div><b>${escapeChat(name)}</b><span>${escapeChat(sub)}</span></div></div>`}).join('');
+   window._searchSuggestions=places;box.classList.add('show');
+ }catch{hideSearchSuggestions();}
+}
+function scheduleSearchSuggestions(q){clearTimeout(suggestionTimer);suggestionTimer=setTimeout(()=>suggestPlaces(q),320)}
+function hideSearchSuggestions(){const b=$('searchSuggestions');if(b)b.classList.remove('show')}
+function chooseSuggestion(i){const p=window._searchSuggestions?.[i];if(!p)return;$('mapSearch').value=p.display_name.split(',').slice(0,3).join(', ');hideSearchSuggestions();analyzeMapPoint(Number(p.lat),Number(p.lon),p.display_name,false)}
+document.addEventListener('click',e=>{if(!e.target.closest('.map-search-wrap'))hideSearchSuggestions()});
+
+async function searchMap(){
+ const q=$('mapSearch').value.trim();if(!q){toast('Type a location first');return;}
+ hideSearchSuggestions(); $('mapSearchStatus').innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> Searching India…';
+ try{
+   let places=[];
+   const primary="https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&addressdetails=1&countrycodes=in&q="+encodeURIComponent(q);
+   const r=await fetch(primary,{cache:'no-store',headers:{"Accept":"application/json","Accept-Language":"en"}});
+   if(r.ok)places=await r.json();
+   if(!places.length){
+      const fallback="https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&addressdetails=1&q="+encodeURIComponent(q);
+      const rr=await fetch(fallback,{cache:'no-store',headers:{"Accept":"application/json","Accept-Language":"en"}}); if(rr.ok)places=await rr.json();
+   }
+   if(!places.length){$('mapSearchStatus').textContent='No matching place found. Try a city, district, village, landmark or PIN code.';toast('Location not found');return;}
+   const p=places[0]; await analyzeMapPoint(Number(p.lat),Number(p.lon),p.display_name,false);
+ }catch(e){$('mapSearchStatus').textContent='Search service unavailable — check internet and try again.';toast('Location search unavailable');console.warn(e);}
+}
+
+function initCharts(){
+ riskChart=new Chart($("riskChart"),{
+  type:"line",
+  data:{labels:[],datasets:[
+   {label:"24H Rainfall (mm)",data:[],borderWidth:2,tension:.36,yAxisID:"rain"},
+   {label:"AI Risk",data:[],borderWidth:2,tension:.36,yAxisID:"risk"}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+   scales:{x:{ticks:{color:"#73899d",font:{size:8}},grid:{color:"rgba(255,255,255,.04)"}},
+   rain:{position:"left",ticks:{color:"#73899d",font:{size:8}},grid:{color:"rgba(255,255,255,.04)"}},
+   risk:{position:"right",min:0,max:100,ticks:{color:"#73899d",font:{size:8}},grid:{drawOnChartArea:false}}},
+   plugins:{legend:{labels:{color:"#a9bdcd",font:{size:8},boxWidth:10}}}}
+ });
+ distributionChart=new Chart($("distributionChart"),{
+  type:"doughnut",data:{labels:["Low","Moderate","High","Critical"],datasets:[{data:[0,0,0,0],borderWidth:0}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:"66%",plugins:{legend:{position:"bottom",labels:{color:"#a9bdcd",font:{size:8},padding:13}}}}
+ });
+}
+function updateCharts(){
+ if(!riskChart||!distributionChart)return;
+ const t=nowTime();labels.push(t);rainHistory.push(weatherData[selectedIndex]?.rain24||0);riskHistory.push(risk);
+ if(labels.length>22){labels.shift();rainHistory.shift();riskHistory.shift()}
+ riskChart.data.labels=labels;riskChart.data.datasets[0].data=rainHistory;riskChart.data.datasets[1].data=riskHistory;riskChart.update("none");
+ const counts=[0,0,0,0];weatherData.forEach(d=>{if(d.risk<40)counts[0]++;else if(d.risk<60)counts[1]++;else if(d.risk<80)counts[2]++;else counts[3]++});
+ distributionChart.data.datasets[0].data=counts;distributionChart.update("none");
+}
+
+function renderSensors(){
+ const defs=[
+  ["RAIN-TAW-01","Rain Gauge","mm/h"],["SOIL-SHL-07","Soil Moisture","%"],["TILT-GNG-03","Slope Tilt","°"],
+  ["GNSS-TAW-11","Ground Shift","mm"],["SEIS-KOH-02","Seismic","g"],["GW-AIZ-05","Groundwater","m"],
+  ["RAIN-KOH-04","Rain Gauge","mm/h"],["TILT-AIZ-06","Slope Tilt","°"],["GNSS-GNG-02","Ground Shift","mm"]
+ ];
+ const vals=[
+  (weatherData[0]?.rainNow??0)+Math.random()*.08, soil,
+  1+Math.random()*2, 3+Math.random()*7, .01+Math.random()*.025, 8+Math.random()*5,
+  .1+Math.random()*.5, 1+Math.random()*2, 2+Math.random()*6
+ ];
+ $("sensorGrid").innerHTML=defs.map((s,i)=>{
+  const val=i===1?Math.round(vals[i]):Number(vals[i]).toFixed(i===4?3:1);
+  return `<div class="sensor"><div class="sensor-top"><span class="sensor-name">${s[0]}</span><span class="sensor-status">●</span></div><div class="sensor-value">${val}</div><div class="sensor-unit">${s[1]} • ${s[2]}</div><div class="sensor-meta"><span>SIMULATION - SENSOR GATEWAY NOT CONNECTED</span><span>${nowTime()}</span></div></div>`;
+ }).join("");
+}
+function renderAlerts(){
+ const l=LOCATIONS[selectedIndex];
+ $("alertList").innerHTML=`
+ <div class="alert ${risk>=80?"alert-red":risk>=60?"alert-yellow":"alert-blue"}">
+  <div class="alert-icon" style="background:rgba(255,80,99,.1);color:#ff7e8c"><i class="fa-solid fa-triangle-exclamation"></i></div>
+  <div><h4>${risk>=80?"Critical risk threshold":"Risk assessment updated"}</h4><p>${l.name} is currently at AI risk <b>${risk}/100</b>.</p><time>${nowTime()}</time></div>
+ </div>
+ <div class="alert alert-yellow">
+  <div class="alert-icon" style="background:rgba(255,196,79,.1);color:#ffd16b"><i class="fa-solid fa-cloud-rain"></i></div>
+  <div><h4>Rainfall / saturation analysis</h4><p>Rainfall and humidity are being incorporated into the current landslide-risk calculation.</p><time>Live analysis</time></div>
+ </div>
+ <div class="alert alert-blue">
+  <div class="alert-icon" style="background:rgba(85,166,255,.1);color:#6eb5ff"><i class="fa-solid fa-satellite-dish"></i></div>
+  <div><h4>Monitoring network healthy</h4><p>GIS markers, API weather stations and sensor gateway data (not connected) are active.</p><time>${lastApiOk?"API connected":"Demo mode"}</time></div>
+ </div>`;
+}
+function renderTimeline(){
+ $("timeline").innerHTML=`
+ <div class="timeline-item"><h4>Weather observation cycle</h4><p>${lastApiOk?"Live observations synchronized from Open-Meteo.":"API unavailable; dashboard is using demo fallback values."}</p><span>${lastApiAt?lastApiAt.toLocaleTimeString():"Startup"}</span></div>
+ <div class="timeline-item"><h4>AI risk engine update</h4><p>Rainfall, humidity, movement and seismic indicators recomputed for the selected station.</p><span>Continuous</span></div>
+ <div class="timeline-item"><h4>IoT telemetry pulse</h4><p>Sensor gateway is not connected; no physical reading is being claimed.</p><span>Every 2 seconds</span></div>
+ <div class="timeline-item"><h4>GIS monitoring</h4><p>Map markers refreshed across all configured NER monitoring locations.</p><span>Operational</span></div>`;
+}
+function runAI(){
+ const d=weatherData[selectedIndex];if(!d)return;
+ movement=Math.max(10,Math.min(90,movement+(Math.random()-.45)*10));
+ seismic=Math.round(Math.max(8,Math.min(58,seismic+(Math.random()-.5)*8)));
+ risk=Math.round(Math.min(100,d.rain24*2.8*.48+soil*.27+movement*.15+seismic*.1));
+ updateRisk();updateCharts();renderAlerts();renderTimeline();toast("AI risk prediction recalculated");
+}
+function updateScenario(){
+ const rain=Number($("simRain").value),s=Number($("simSoil").value),m=Number($("simMove").value);
+ $("simRainValue").textContent=rain+"%";$("simSoilValue").textContent=s+"%";$("simMoveValue").textContent=m+"%";
+ const sr=Math.round(Math.min(100,rain*.46+s*.32+m*.22));$("scenarioRisk").textContent=sr+"/100";
+ $("scenarioRisk").style.color=riskColor(sr);
+ $("scenarioAdvice").textContent=sr>=80?"Critical scenario: evacuation readiness should be reviewed.":sr>=60?"High scenario: issue a warning and inspect vulnerable slopes.":sr>=40?"Moderate scenario: increase monitoring frequency.":"Low scenario: continue routine monitoring.";
+}
+function refreshAll(manual=false){fetchWeather().then(()=>{if(manual)toast(lastApiOk?"Live weather synchronized":"API unavailable — demo fallback active")})}
+function toggleChat(force){const p=$("chatPanel"); if(!p)return; const show=force===undefined?!p.classList.contains("show"):Boolean(force); p.classList.toggle("show",show); document.body.classList.toggle("chat-open",show); if(show) setTimeout(()=>$("chatInput")?.focus(),30); }
+function closeChat(){toggleChat(false)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeChat();closeAbout?.();closePalette?.();toggleNotificationDrawer?.(false);}});
+function addChat(text,who){const d=document.createElement("div");d.className="chat-msg "+who;d.innerHTML=text;$("chatMessages").appendChild(d);$("chatMessages").scrollTop=$("chatMessages").scrollHeight}
+
+let chatHistory=[];
+let lastChatTopic='';
+let lastChatLocation=null;
+let chatBusy=false;
+const CHAT_TOPIC_LABELS={risk:'Risk',weather:'Weather',sensors:'Sensors',response:'Response',shelter:'Shelters',incidents:'Incidents',map:'Map',system:'System'};
+function escapeChat(v){return String(v??'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));}
+function currentContext(){
+ const d=weatherData[selectedIndex]||{}; const l=LOCATIONS[selectedIndex]||{};
+ if(selectedAnalysis) return {d:selectedAnalysis.data,l:{name:selectedAnalysis.name,state:selectedAnalysis.state},risk:Number(selectedAnalysis.risk),api:lastApiOk?'LIVE':'OFFLINE'}; return {d,l,risk:Number(d.risk||risk||0),api:lastApiOk?'LIVE':'OFFLINE'};
+}
+function updateChatContext(){
+ const c=currentContext();
+ const el=$('chatContext'); if(!el)return;
+ el.innerHTML=`<span>📍 ${escapeChat(lastSearchedPlace?.name||c.l.name||'Selected')}</span><span>Risk ${lastSearchedPlace?.risk??c.risk}/100</span><span>Weather ${c.api}</span><span>${weatherData.length} stations</span><em class="chat-status">AI READY</em>`;
+}
+function addChat(text,who){
+ const d=document.createElement('div');d.className='chat-msg '+who;
+ d.innerHTML=who==='user'?escapeChat(text):text;
+ $('chatMessages').appendChild(d);$('chatMessages').scrollTop=$('chatMessages').scrollHeight;
+}
+function addTyping(){
+ const d=document.createElement('div');d.id='chatTyping';d.className='chat-typing';d.innerHTML='<span></span><span></span><span></span> AI is analyzing dashboard state';
+ $('chatMessages').appendChild(d);$('chatMessages').scrollTop=$('chatMessages').scrollHeight;
+}
+function removeTyping(){$('chatTyping')?.remove()}
+function quickAsk(q){if(chatBusy)return;$('chatInput').value=q;answerChat(q);$('chatInput').value=''}
+function sendChat(e){e.preventDefault();if(chatBusy)return;const q=$('chatInput').value.trim();if(!q)return;answerChat(q);$('chatInput').value=''}
+const INDIA_WATCHLIST=[
+ ['Srinagar','Jammu & Kashmir',34.0837,74.7973,5.2,72],['Gulmarg','Jammu & Kashmir',34.0484,74.3805,11.5,88],['Pahalgam','Jammu & Kashmir',34.0161,75.315,9.8,82],['Kinnaur','Himachal Pradesh',31.583,78.4,14,90],['Shimla','Himachal Pradesh',31.1048,77.1734,10,72],['Manali','Himachal Pradesh',32.2396,77.1887,13,84],['Dharamshala','Himachal Pradesh',32.219,76.3234,9.5,76],['Uttarkashi','Uttarakhand',30.7268,78.4354,12.5,86],['Chamoli','Uttarakhand',30.405,79.318,14.5,92],['Rudraprayag','Uttarakhand',30.285,78.981,11.8,88],['Pithoragarh','Uttarakhand',29.582,80.218,10.2,79],['Nainital','Uttarakhand',29.3919,79.4542,8.7,68],['Darjeeling','West Bengal',27.036,88.2627,9.2,75],['Kalimpong','West Bengal',27.066,88.475,8.2,72],['Gangtok','Sikkim',27.3389,88.6065,9.7,80],['Mangan','Sikkim',27.509,88.535,13.5,90],['Tawang','Arunachal Pradesh',27.586,91.859,10.5,78],['Bomdila','Arunachal Pradesh',27.2645,92.4244,11,82],['Shillong','Meghalaya',25.5788,91.8933,7.8,72],['Cherrapunji','Meghalaya',25.284,91.72,8.5,85],['Kohima','Nagaland',25.6751,94.1086,7.5,74],['Aizawl','Mizoram',23.7271,92.7176,7.8,76],['Wayanad','Kerala',11.685,76.132,6.2,70],['Idukki','Kerala',9.918,76.953,7.6,78],['Munnar','Kerala',10.0889,77.0595,8.1,74],['Ooty','Tamil Nadu',11.4064,76.6932,6.8,67],['Kodaikanal','Tamil Nadu',10.2381,77.4892,6.5,64],['Kodagu','Karnataka',12.3375,75.8069,5.9,70],['Lonavala','Maharashtra',18.7546,73.4062,4.2,62],['Mahabaleshwar','Maharashtra',17.9307,73.6477,4.8,68],['Mandi','Himachal Pradesh',31.708,76.932,11.2,80],['Srinagar Garhwal','Uttarakhand',30.222,78.78,10.5,77],['Agumbe','Karnataka',13.508,75.098,5.3,73] ];
+let indiaWatchData=[];
+async function refreshIndiaWatchlist(){
+ const lats=INDIA_WATCHLIST.map(x=>x[2]).join(','), lons=INDIA_WATCHLIST.map(x=>x[3]).join(',');
+ try{
+   const u=`https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m&hourly=precipitation&forecast_days=1&past_days=1&timezone=auto`;
+   const r=await fetch(u,{cache:'no-store'}); if(!r.ok)throw new Error('watchlist'); const j=await r.json(); const arr=Array.isArray(j)?j:[j];
+   indiaWatchData=INDIA_WATCHLIST.map((z,i)=>{const w=arr[i]||{};const c=w.current||{};const h=Array.isArray(w.hourly?.precipitation)?w.hourly.precipitation:[];const rain=h.slice(Math.max(0,h.length-24)).reduce((a,v)=>a+(Number(v)||0),0);const weather={temp:Number(c.temperature_2m||0),hum:Number(c.relative_humidity_2m||60),wind:Number(c.wind_speed_10m||0),rainNow:Number(c.precipitation||0),rain24:rain};const terrain={elev:z[5],relief:z[5]>80?500:260,slopeDeg:z[4],};const rr=riskFromPoint(weather,terrain.elev,terrain);return {...rr,loc:{name:z[0],state:z[1],lat:z[2],lon:z[3],index:i},source:'LIVE WEATHER + ESTIMATED TERRAIN'};});
+ }catch{
+   indiaWatchData=INDIA_WATCHLIST.map((z,i)=>{const weather={temp:22,hum:75,wind:10,rainNow:.4,rain24:18+(i%8)*4};const terrain={elev:z[5],relief:z[5]>80?500:280,slopeDeg:z[4]};return {...riskFromPoint(weather,terrain.elev,terrain),loc:{name:z[0],state:z[1],lat:z[2],lon:z[3],index:i},source:'DEMO WEATHER + ESTIMATED TERRAIN'};});
+ }
+ renderHazardRadar();
+}
+function getAllRisks(){const base=weatherData.map((d,i)=>({...d,loc:LOCATIONS[i]})).filter(x=>x.loc); const watch=indiaWatchData.length?indiaWatchData:[]; return [...base.map(x=>({...x,scope:'NER'})),...watch.map(x=>({...x,scope:'INDIA'}))];}
+function highestRisk(){return getAllRisks().sort((a,b)=>b.risk-a.risk)[0]||null}
+function findMentionedLocation(q){
+ const s=q.toLowerCase();
+ return LOCATIONS.map((l,i)=>({...l,i})).find(x=>s.includes(x.name.toLowerCase())||s.includes(x.state.toLowerCase()))||null;
+}
+function riskAdvice(v){return v>=80?'Critical: review evacuation readiness, verify sensors and escalate the warning workflow.':v>=60?'High: inspect vulnerable slopes, verify supporting evidence and prepare response teams.':v>=40?'Moderate: increase monitoring frequency and watch rainfall accumulation.':'Low: continue routine monitoring and maintain normal readiness.'}
+function dashboardReport(c){
+ const top=highestRisk(); const d=c.d; const station= c.l;
+ return `<b>NER-LANDSLIDE AI — Current Situation Report</b><br><br><b>Selected:</b> ${escapeChat(station.name)}, ${escapeChat(station.state)}<br><b>Risk:</b> ${c.risk}/100 (${riskClass(c.risk).toUpperCase()})<br><b>Weather:</b> ${Number(d.temp||0).toFixed(1)}°C, humidity ${Math.round(d.hum||0)}%, wind ${Number(d.wind||0).toFixed(1)} km/h<br><b>Rain:</b> ${Number(d.rainNow||0).toFixed(1)} mm now / ${Number(d.rain24||0).toFixed(1)} mm 24h<br><b>Data:</b> Weather API ${c.api}; IoT physical gateway is not connected<br><b>Highest monitored risk:</b> ${top?`${escapeChat(top.loc.name)} — ${top.risk}/100`: 'No data'}<br><br><b>Recommended:</b> ${riskAdvice(c.risk)}`;
+}
+function buildChatReply(q){
+ const raw=q.trim(), s=raw.toLowerCase(), c=currentContext();
+ const normalize = s.replace(/[?!,.;:]+/g,' ').replace(/\s+/g,' ').trim();
+ const casual = {
+  greetings: /^(hi|hii|hiii|hello|hey|heyy|namaste|namaskar|yo|sup|good morning|good evening|good afternoon)( bhai| bro| boss| yaar)?$/i,
+  how: /(kaise ho|kya haal hai|how are you|how r u|sab theek|sab badhiya|kaisa chal raha)/i,
+  thanks: /(thanks|thank you|thx|shukriya|dhanyavaad|thankyou)/i,
+  bye: /^(bye|good night|gn|see you|milte hain|chalo bye)$/i,
+  who: /(tum kaun ho|who are you|what are you|apna intro|introduce yourself)/i,
+  help: /^(help|madad|kya kar sakte ho|what can you do|options)$/i,
+  yes: /^(yes|haan|ha|okay|ok|theek|thik|cool|nice|accha|acha)$/i
+ };
+ if(casual.greetings.test(normalize)) return 'Hey bhai 👋 Sab badhiya. Main ready hoon. Bolo - kisi location ka landslide risk dekhna hai, weather check karna hai, map search karna hai ya bas normal baat karni hai?';
+ if(casual.how.test(normalize)) return 'Main bilkul ready hoon bhai 😄 Tum batao kya scene hai? Aaj map par koi location check karni hai ya NER ka risk dekhna hai?';
+ if(casual.thanks.test(normalize)) return 'Anytime bhai ❤️ Batao aur kya dekhna hai? Main same location ka follow-up bhi handle kar sakta hoon.';
+ if(casual.bye.test(normalize)) return 'Theek hai bhai 😄 Jab bhi zarurat ho, wapas aa jana. NER-Landslide AI ready rahega.';
+ if(casual.who.test(normalize)) return 'Main NER-Landslide AI assistant hoon - is dashboard ke weather, GIS, landslide-risk, radar, sensor-state, alerts aur response modules ke saath kaam karta hoon. Normal Hinglish conversation bhi kar sakta hoon.';
+ if(casual.help.test(normalize)) return '<b>Main ye sab kar sakta hoon:</b><br>• Kisi bhi searched location ka landslide-focused estimate explain karna<br>• Rainfall / weather batana<br>• Risk ka reason samjhana<br>• Radar aur high-priority areas identify karna<br>• Sensors, alerts, shelters aur incidents ka summary dena<br>• Response plan suggest karna<br>• Current situation report banana<br>• Normal hello / casual Hinglish conversation bhi karna';
+ if(casual.yes.test(normalize) && lastChatTopic) return `Haan bhai 👍 <b>${escapeChat(lastChatTopic)}</b> context continue karte hain. Jo next poochna hai seedha pooch do.`;
+ const mentioned=findMentionedLocation(s); if(mentioned)lastChatLocation=mentioned;
+ const target=lastChatLocation?weatherData[lastChatLocation.i]?{l:lastChatLocation,d:weatherData[lastChatLocation.i],risk:weatherData[lastChatLocation.i].risk}:c:{l:c.l,d:c.d,risk:c.risk};
+ if(lastSearchedPlace && /searched location|that place|that location|there|this place|search result|searched place/i.test(s)) {
+   const x=lastSearchedPlace; lastChatTopic='map';
+   return `<b>${escapeChat(x.name)}</b> is the last searched location. Its current dashboard estimate is <b>${x.risk}/100 (${x.riskClass.toUpperCase()})</b>, with ${Number(x.rain24||0).toFixed(1)} mm/24h rainfall, humidity ${Math.round(x.hum||0)}% and wind ${Number(x.wind||0).toFixed(1)} km/h. This is an AI/demo estimate, not an official hazard rating.`;
+ }
+ if(/^search\s+/i.test(raw)){ const place=raw.replace(/^search\s+/i,'').trim(); $('mapSearch').value=place; lastChatTopic='map'; searchMap(); return `I’ve sent <b>${escapeChat(place)}</b> to the GIS search. The map will move there and calculate a local hazard estimate.`; }
+ if(/^(hi|hello|hey|namaste|hii|hiii|yo|good morning|good evening|good night)\b/i.test(s) || /\b(kya haal|kaise ho|kaisan ho|haal chaal|how are you|what's up|whats up)\b/i.test(s)) {lastChatTopic='system';return ['Namaste 👋 Main NER-Landslide AI assistant hoon. Main bilkul normal conversation bhi kar sakta hoon — batao kya scene hai?','Hello bhai 😄 Main ready hoon. Kisi location ka landslide risk, weather, map, sensors ya response status poochho.','Sab badhiya! 🚀 Aaj kis area ko analyze karein? Location bolo ya seedha question pooch do.','Hey! 👋 Main dashboard ka context yaad rakhte hue baat karunga. Tum Hinglish mein bhi freely pooch sakte ho.'][Math.floor(Math.random()*4)];}
+ if(/\b(thank you|thanks|shukriya|dhanyavaad|thx)\b/i.test(s)) {lastChatTopic='system';return ['Bilkul bhai ❤️','Anytime! 😄','Welcome — next question bhejo.'][Math.floor(Math.random()*3)];}
+ if(/^(good|great|nice|perfect|awesome|mast|badiya|badhiya)\b/i.test(s)) {return 'Nice! 😄 Chalo ab kisi location ko search karke uska landslide analysis dekhte hain.';}
+ if(/\b(bhai|bro)\b/i.test(s) && /\b(help|bata|bta|show|dikha)\b/i.test(s)) {return 'Haan bhai 😄 Bolo kya dekhna hai — <b>risk</b>, <b>rainfall</b>, <b>map</b>, <b>sensors</b>, <b>shelter</b>, <b>incident</b> ya <b>response</b>?';}
+ if(s.includes('thank')) return ['You’re welcome.','Anytime — dashboard state ke basis par analysis ready hai.','Done 👍 Agla question bhejo.'][Math.floor(Math.random()*3)];
+ if(s.includes('help')||s.includes('what can you')||s.includes('capabilit')){lastChatTopic='system';return '<b>Main ye kaam kar sakta hoon:</b><br>• Current / highest risk<br>• Kisi location ka risk “why” explanation<br>• ANY searched location ka AI/demo risk estimate<br>• Rainfall, weather, wind, temperature, humidity<br>• Critical / offline sensor status<br>• Shelters & evacuation status<br>• Today’s incidents and response actions<br>• API/system health<br>• Live location / map guidance<br>• Current dashboard report<br><br><span class="mini-chip">Tip: “search Delhi”</span><span class="mini-chip">“why is Kohima risky?”</span><span class="mini-chip">“what about rainfall there?”</span>';}
+ if(s.includes('report')||s.includes('summary')||s.includes('situation')){lastChatTopic='system';return dashboardReport(c)}
+ if(s.includes('highest')||s.includes('worst')||s.includes('most risky')||s.includes('top risk')){const x=highestRisk();lastChatTopic='risk';return x?`Highest monitored risk is <b>${escapeChat(x.loc.name)}</b>, ${escapeChat(x.loc.state)} at <b>${x.risk}/100</b>. ${riskAdvice(x.risk)}`:'Risk data is not available yet.'}
+ if((s.includes('why')||s.includes('kyu')||s.includes('kyon')) && (s.includes('risk')||s.includes('danger')||s.includes('high'))){lastChatTopic='risk';const d=target.d;const terrainNote=lastSearchedPlace?`Terrain is <b>${escapeChat(lastSearchedPlace.terrainLabel||'not available')}</b> with estimated slope <b>${Number(lastSearchedPlace.slopeDeg||0).toFixed(1)}°</b>.`:`The selected station uses the dashboard's weather-driven risk model.`;return `<b>${escapeChat(target.l.name)}</b> is at <b>${target.risk}/100</b>. Main drivers include rainfall (${Math.round(Math.min(100,(d.rain24||0)*2.35))}%), moisture proxy (${d.soil||0}%) and movement index (${d.move||0}%). ${terrainNote} ${riskAdvice(target.risk)}`}
+ if(s.includes('risk')||s.includes('landslide')||s.includes('danger')){lastChatTopic='risk';if(lastSearchedPlace && !mentioned){return `For the last searched location <b>${escapeChat(lastSearchedPlace.name)}</b>, the dashboard estimate is <b>${lastSearchedPlace.risk}/100 (${lastSearchedPlace.riskClass.toUpperCase()})</b>. ${riskAdvice(lastSearchedPlace.risk)} This is an AI/demo estimate.`}return `Selected analysis: <b>${escapeChat(target.l.name)}</b> has risk <b>${target.risk}/100 (${riskClass(target.risk).toUpperCase()})</b>. ${riskAdvice(target.risk)}`}
+ if(s.includes('rain')||s.includes('precip')){lastChatTopic='weather';return `<b>${escapeChat(target.l.name)}</b>: precipitation <b>${Number(target.d.rainNow||0).toFixed(1)} mm</b>, 24-hour accumulation <b>${Number(target.d.rain24||0).toFixed(1)} mm</b>. ${Number(target.d.rain24||0)>30?'Rainfall is a major monitoring factor right now.':'Rainfall is currently not extreme in the dashboard state.'}`}
+ if(s.includes('weather')||s.includes('forecast')||s.includes('condition')){lastChatTopic='weather';const meta=weatherMeta(target.d.code||0);return `<b>${escapeChat(target.l.name)}</b>: ${meta[0]}, <b>${Number(target.d.temp||0).toFixed(1)}°C</b>, humidity <b>${Math.round(target.d.hum||0)}%</b>, wind <b>${Number(target.d.wind||0).toFixed(1)} km/h</b>. Data source state: <b>${c.api}</b>.`}
+ if(s.includes('wind')){lastChatTopic='weather';return `<b>${escapeChat(target.l.name)}</b> wind speed is <b>${Number(target.d.wind||0).toFixed(1)} km/h</b>.`}
+ if(s.includes('temperature')||s.includes('temp')||s.includes('humidity')){lastChatTopic='weather';return `<b>${escapeChat(target.l.name)}</b>: <b>${Number(target.d.temp||0).toFixed(1)}°C</b> and humidity <b>${Math.round(target.d.hum||0)}%</b>.`}
+ if(s.includes('sensor')||s.includes('iot')||s.includes('gnss')||s.includes('tilt')){lastChatTopic='sensors';return `The sensor panel is currently in <b>${dataMode.toUpperCase()} MODE</b>. Demo telemetry is explicitly simulated until a physical MQTT/REST/WebSocket gateway is connected. Critical sensor checks should focus on battery, signal, last packet and threshold state.`}
+ if(s.includes('offline')||s.includes('critical sensor')||s.includes('battery')){lastChatTopic='sensors';return `<b>Sensor health:</b> use the IoT Telemetry section to inspect each node’s value, battery, signal and last packet. The browser demo does not claim simulated values are physical observations.`}
+ if(s.includes('api')||s.includes('live')||s.includes('connected')||s.includes('status')){lastChatTopic='system';return c.api==='LIVE'?`✅ Weather API is <b>LIVE</b>. Last successful sync: <b>${lastApiAt?lastApiAt.toLocaleTimeString():'just now'}</b>, latency <b>${lastLatency??'—'} ms</b>. Map tiles and other subsystems have separate status indicators.`:`⚠ Weather API is currently <b>OFFLINE</b>. The dashboard is using clearly labeled fallback/demo values where available.`}
+ if(s.includes('shelter')||s.includes('relief')||s.includes('bed')){lastChatTopic='shelter';return `Relief centers are tracked in the Shelter Ops module. Current examples include Shillong Relief Hub, Kohima Emergency Shelter and Tawang Community Center with visible capacity/occupancy states. For a live operational deployment, connect the shelter dataset/backend rather than treating these demo figures as official counts.`}
+ if(s.includes('population')||s.includes('evac')){lastChatTopic='response';return `The Population & Evacuation module tracks population-at-risk, evacuated and remaining counts, plus vulnerable groups and shelter demand. Current figures are marked estimated/demo unless a real dataset is connected.`}
+ if(s.includes('incident')||s.includes('today')){lastChatTopic='incidents';const active=incidentsV2.filter(x=>x.status!=='RESOLVED');return `There are <b>${incidentsV2.length}</b> incidents in the current dashboard dataset, with <b>${active.length}</b> not resolved. Highest-severity example: <b>${escapeChat((highestRisk()?.loc.name)||incidentsV2[0]?.loc||'Kohima')}</b>. Open Incident Management Center for status, team and update controls.`}
+ if(s.includes('response')||s.includes('team')||s.includes('what should')||s.includes('action')||s.includes('do now')){lastChatTopic='response';return `<b>Recommended next steps for ${escapeChat(c.l.name)}:</b><br>1. Verify the current rainfall and soil/movement evidence.<br>2. Check sensor health and last packet times.<br>3. Review warning workflow and assign an incident owner.<br>4. Prepare route/shelter options when risk is HIGH or CRITICAL.<br><br>${riskAdvice(c.risk)}`}
+ if(s.includes('map')||s.includes('where')||s.includes('location')){lastChatTopic='map';if(lastSearchedPlace)return `The map is currently focused on <b>${escapeChat(lastSearchedPlace.name)}</b> — <b>${lastSearchedPlace.risk}/100</b> landslide estimate, terrain <b>${escapeChat(lastSearchedPlace.terrainLabel||'analyzed')}</b>. Search another place anytime.`;return `The GIS map is ready for global search. Search any place and I’ll move there, inspect terrain/weather and calculate a landslide-focused estimate.`}
+ if(s.includes('compare')){lastChatTopic='risk';const rows=getAllRisks().sort((a,b)=>b.risk-a.risk).slice(0,4);return `<b>Top monitored risk comparison:</b><br>`+rows.map((x,i)=>`${i+1}. ${escapeChat(x.loc.name)} — <b>${x.risk}/100</b>`).join('<br>')}
+ if(lastChatTopic==='weather' && (s.includes('that')||s.includes('there')||s.includes('it'))) return `Continuing weather context for <b>${escapeChat(target.l.name)}</b>: ${Number(target.d.temp||0).toFixed(1)}°C, ${Number(target.d.rain24||0).toFixed(1)} mm/24h rain, wind ${Number(target.d.wind||0).toFixed(1)} km/h.`;
+ if(lastChatTopic==='risk' && (s.includes('that')||s.includes('there')||s.includes('it'))) return `Continuing risk context for <b>${escapeChat(target.l.name)}</b>: <b>${target.risk}/100</b>. ${riskAdvice(target.risk)}`;
+ lastChatTopic='system';
+ return `I understood: “<b>${escapeChat(raw)}</b>”. I can analyze the current dashboard state, but that exact request is outside my configured dashboard knowledge. Try asking about <b>${escapeChat(c.l.name)} risk</b>, rainfall, sensors, shelters, incidents, response actions, API status, or say <b>help</b>.`;
+}
+function answerChat(q){
+ const query=String(q||'').trim(); if(!query||chatBusy)return;
+ chatBusy=true; if($('chatMood'))$('chatMood').textContent='● Thinking about your message'; addChat(query,'user'); addTyping(); updateChatContext();
+ chatHistory.push({role:'user',content:query,at:new Date().toISOString()});
+ const delay=350+Math.floor(Math.random()*350);
+ setTimeout(()=>{removeTyping();const reply=buildChatReply(query);addChat(reply,'bot');chatHistory.push({role:'assistant',content:reply,at:new Date().toISOString()});updateChatContext();chatBusy=false; if($('chatMood'))$('chatMood').textContent='● Ready for conversation';},delay);
+}
+function clearChat(){
+ chatHistory=[];lastChatTopic='';lastChatLocation=null;
+ $('chatMessages').innerHTML='<div class="chat-msg bot">Chat cleared. Main current dashboard state se fresh conversation start kar raha hoon. Aap kisi location ka risk, rainfall, sensors, shelter, incident ya system status pooch sakte ho.</div>';updateChatContext();
+}
+
+function focusRiskLocation(x){
+ if(!x?.loc)return;
+ const idx=LOCATIONS.findIndex(l=>l.name===x.loc.name && l.state===x.loc.state);
+ if(idx>=0){changeStation(idx);return;}
+ analyzeMapPoint(Number(x.loc.lat),Number(x.loc.lon),`${x.loc.name}, ${x.loc.state}`,false);
+}
+function renderHazardRadar(){
+ const stage=$('radarStage'),list=$('radarList'); if(!stage||!list)return;
+ stage.querySelectorAll('.radar-point').forEach(x=>x.remove()); list.innerHTML='';
+ const rows=getAllRisks().sort((a,b)=>b.risk-a.risk);
+ rows.forEach((x,i)=>{
+   const angle=(i/Math.max(1,rows.length))*Math.PI*2, radius=18+Math.min(30,x.risk*.32);
+   const left=50+Math.cos(angle)*radius, top=50+Math.sin(angle)*radius*.62; const color=riskColor(x.risk);
+   const dot=document.createElement('div');dot.className='radar-point';dot.style.left=`${left}%`;dot.style.top=`${top}%`;dot.style.color=color;dot.style.background=color;dot.style.width=`${9+Math.min(10,x.risk/12)}px`;dot.style.height=dot.style.width;dot.title=`${x.loc.name}: ${x.risk}/100`;dot.onclick=()=>focusRiskLocation(x);stage.appendChild(dot);
+   if(i<10)list.innerHTML+=`<div class="radar-row" onclick='focusRiskLocation(${JSON.stringify(x).replace(/'/g,"\'")})'><div><strong>${escapeChat(x.loc.name)}</strong><br><span>${escapeChat(x.loc.state)} • ${Number(x.rain24||0).toFixed(1)} mm/24h • ${escapeChat(x.source||'NER network')}</span></div><b style="color:${color}">${x.risk}</b></div>`;
+ });
+}
+
+function refreshActionPlanner(){
+ const board=$('actionBoard'); if(!board)return; const c=currentContext(); const items=[];
+ if(c.risk>=60)items.push(['fa-triangle-exclamation','Verify high-risk zone','Review rainfall, soil and movement evidence before escalation.']);
+ else items.push(['fa-chart-line','Increase monitoring','Keep continuous observation and watch rainfall accumulation.']);
+ items.push(['fa-microchip','Check sensor health','Inspect battery, signal, thresholds and latest packets for critical nodes.']);
+ items.push(['fa-route','Prepare response routes',c.risk>=60?'Check alternate roads and shelter access now.':'Keep route information synchronized for rapid escalation.']);
+ items.push(['fa-bullhorn','Review warning workflow',c.risk>=80?'Escalation and evacuation readiness should be reviewed.':'Keep watch/verification workflow ready.']);
+ items.push(['fa-house-medical','Review shelter readiness','Check occupancy, beds, water, food, medical support and communications.']);
+ board.innerHTML=items.map(x=>`<div class="action-item"><i class="fa-solid ${x[0]}"></i><h4>${x[1]}</h4><p>${x[2]}</p><button class="btn action-btn" onclick="toast('Opened ${x[1]} workflow')">OPEN</button></div>`).join('');
+}
+
+function openAbout(){$("aboutModal").classList.add("show")}function closeAbout(){$("aboutModal").classList.remove("show")}
+
+window.addEventListener("load",()=>{
+ initMap();initCharts();useDemoData();refreshIndiaWatchlist();renderAll();updateScenario();updateChatContext();fetchWeather();setTimeout(()=>{if(typeof renderHazardRadar==="function")renderHazardRadar();if(typeof refreshActionPlanner==="function")refreshActionPlanner();},250);
+ setInterval(()=>{
+  if(weatherData.length){
+   // Demo telemetry changes rapidly; actual API is re-synced on the slower interval.
+   movement=Math.max(10,Math.min(90,movement+(Math.random()-.5)*2));
+   seismic=Math.round(Math.max(8,Math.min(58,seismic+(Math.random()-.5)*2)));
+   updateRisk();renderSensors();updateCharts();renderAlerts();
+  }
+ },2000);
+ setInterval(()=>fetchWeather(),60000); setInterval(()=>refreshIndiaWatchlist(),300000);
+});
+
+
+/* ===================== NER-LANDSLIDE AI V2 JS ===================== */
+let dataMode = 'live';
+let disasterScenario = false;
+let analyticsChartV2 = null;
+let incidentsV2 = [
+ {id:'INC-2041',loc:'Kohima',sev:'HIGH',status:'ACTIVE',team:'Rapid Response 03',updated:'2 min ago'},
+ {id:'INC-2039',loc:'Tawang',sev:'WATCH',status:'INVESTIGATING',team:'Terrain Unit 02',updated:'8 min ago'},
+ {id:'INC-2037',loc:'Shillong',sev:'MODERATE',status:'CONTAINED',team:'Medical + Rescue',updated:'21 min ago'},
+ {id:'INC-2032',loc:'Aizawl',sev:'LOW',status:'RESOLVED',team:'Local Authority',updated:'43 min ago'}
+];
+function setDataMode(mode){
+ dataMode=mode;
+ $('modeLiveBtn').classList.toggle('active',mode==='live');$('modeDemoBtn').classList.toggle('active',mode==='demo');
+ $('demoBanner').classList.toggle('show',mode==='demo');
+ $('modeNote').textContent=mode==='demo'?'Simulation is enabled for presentation operations; simulated events are explicitly marked.':'Live external services enabled; physical sensors require a connected gateway.';
+ $('h-ws').textContent=mode==='demo'?'DEMO':'DEMO'; $('h-ws').className='status-demo';
+ toast(mode==='demo'?'DEMO MODE enabled':'LIVE MODE selected');
+}
+function startDisasterScenario(){
+ disasterScenario=true;setDataMode('demo');
+ $('scenarioModal').classList.add('show');
+ const idx=4;
+ if(weatherData[idx]){weatherData[idx].rain24+=28;weatherData[idx].rainNow+=5;weatherData[idx].hum=Math.min(99,weatherData[idx].hum+7);weatherData[idx].soil=Math.min(98,weatherData[idx].soil+12);weatherData[idx].move=Math.min(96,weatherData[idx].move+16);weatherData[idx].risk=Math.min(100,Math.round(weatherData[idx].risk+25));}
+ selectedIndex=idx; if($('stationSelect'))$('stationSelect').value=String(idx); renderAll();
+ $('opsReadiness').textContent='63%';$('opsCoverage').textContent='84%';$('opsInfra').textContent='41';$('opsPopulation').textContent='41.8K';$('evacAtRisk').textContent='18,900';$('evacDone').textContent='4,350';$('evacRemain').textContent='14,550';$('evacProgress').style.width='23%';
+ $('notifBadge').textContent='7';
+ incidentsV2.unshift({id:'INC-'+Math.floor(2050+Math.random()*30),loc:'Kohima',sev:'CRITICAL',status:'NEW',team:'Emergency Coordination',updated:'just now'});
+ renderIncidentTable();renderRanking();
+ toast('Disaster scenario started - DEMO');
+}
+function resetDisasterScenario(){
+ disasterScenario=false;setDataMode('live');
+ useDemoData();selectedIndex=0;if($('stationSelect'))$('stationSelect').value='0';renderAll();
+ $('opsReadiness').textContent='86%';$('opsCoverage').textContent='92%';$('opsInfra').textContent='27';$('opsPopulation').textContent='33.4K';$('evacAtRisk').textContent='12,450';$('evacDone').textContent='4,200';$('evacRemain').textContent='8,250';$('evacProgress').style.width='34%';$('notifBadge').textContent='4';
+ closeScenario();toast('Scenario reset');
+}
+function closeScenario(){$('scenarioModal').classList.remove('show')}
+function togglePresentation(){document.body.classList.toggle('presentation');toast(document.body.classList.contains('presentation')?'Presentation mode ON':'Presentation mode OFF')}
+function toggleNotificationDrawer(force){const el=$('notifDrawerBg'); if(force===false)el.classList.remove('show'); else el.classList.toggle('show')}
+function markNotificationsRead(){$('notifBadge').textContent='0';toggleNotificationDrawer(false);toast('Notifications marked as read')}
+function openPalette(){$('paletteBg').classList.add('show');setTimeout(()=>$('paletteInput').focus(),50)}
+function closePalette(){$('paletteBg').classList.remove('show');$('paletteInput').value='';filterPalette()}
+function filterPalette(){const q=$('paletteInput').value.toLowerCase();document.querySelectorAll('#paletteList .palette-item').forEach(x=>x.style.display=x.textContent.toLowerCase().includes(q)?'flex':'none')}
+function paletteGo(id){closePalette();scrollToId(id)}
+function createIncident(){
+ const loc=LOCATIONS[selectedIndex]?.name||'Unknown';incidentsV2.unshift({id:'INC-'+Math.floor(2100+Math.random()*800),loc,sev:risk>=80?'CRITICAL':risk>=60?'HIGH':'WATCH',status:'NEW',team:'Unassigned',updated:'just now'});renderIncidentTable();$('notifBadge').textContent=String(Math.max(1,Number($('notifBadge').textContent||0)+1));toast('Incident created for '+loc)
+}
+function renderIncidentTable(){
+ const q=($('incidentSearch')?.value||'').toLowerCase(),f=$('incidentFilter')?.value||'ALL';
+ const list=incidentsV2.filter(x=>(f==='ALL'||x.status===f)&&JSON.stringify(x).toLowerCase().includes(q));
+ $('incidentTable').innerHTML=list.map(x=>`<tr><td class="state">${x.id}</td><td>${x.loc}</td><td><span class="pill ${x.sev==='CRITICAL'||x.sev==='HIGH'?'pill-high':'pill-mod'}">${x.sev}</span></td><td>${x.status}</td><td>${x.team}</td><td>${x.updated}</td><td><button class="row-action" onclick="advanceIncident('${x.id}')">Advance</button></td></tr>`).join('')||`<tr><td colspan="7" style="text-align:center;color:var(--muted)">No matching incidents</td></tr>`;
+}
+function advanceIncident(id){const x=incidentsV2.find(i=>i.id===id);if(!x)return;const flow=['NEW','INVESTIGATING','ACTIVE','CONTAINED','RESOLVED'];const n=flow.indexOf(x.status);x.status=flow[Math.min(flow.length-1,n+1)];x.updated='just now';if(x.status==='ACTIVE'&&x.team==='Unassigned')x.team='Rapid Response 01';renderIncidentTable();toast(id+' -> '+x.status)}
+function renderRanking(){
+ const arr=weatherData.map((d,i)=>({loc:LOCATIONS[i].name,state:LOCATIONS[i].state,risk:d.risk,rain:d.rain24})).sort((a,b)=>b.risk-a.risk);
+ $('rankingTable').innerHTML=arr.map((x,i)=>`<tr><td>#${i+1}</td><td class="state">${x.loc}</td><td><span class="pill pill-${riskClass(x.risk)}">${x.risk}</span></td><td>${x.rain.toFixed(1)} mm</td><td>${x.risk>=60?'Action':'Monitoring'}</td></tr>`).join('');
+}
+function initAnalyticsV2(){
+ analyticsChartV2=new Chart($('analyticsChart'),{type:'line',data:{labels:['00','04','08','12','16','20','24'],datasets:[{label:'AI Risk',data:[31,34,38,43,47,51,54],borderWidth:2,tension:.35},{label:'Rainfall Index',data:[18,24,21,32,39,41,46],borderWidth:2,tension:.35}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#a9bdcd',font:{size:8}}}},scales:{x:{ticks:{color:'#73899d',font:{size:8}},grid:{color:'rgba(255,255,255,.04)'}},y:{ticks:{color:'#73899d',font:{size:8}},grid:{color:'rgba(255,255,255,.04)'}}}}});
+}
+function updateAnalytics(){
+ const state=$('analyticsState').value,rg=$('analyticsRange').value,riskF=$('analyticsRisk').value;
+ $('analyticsMeta').textContent=(state.toUpperCase())+' • '+rg.toUpperCase();
+ if(analyticsChartV2){const boost=rg==='Season'?12:rg==='30 Days'?8:rg==='7 Days'?4:0;analyticsChartV2.data.datasets[0].data=[31+boost,34+boost,38+boost,43+boost,47+boost,51+boost,54+boost];analyticsChartV2.update('none')}
+ const list=(weatherData||[]).map((d,i)=>({loc:LOCATIONS[i].name,state:LOCATIONS[i].state,risk:d.risk,rain:d.rain24})).filter(x=>(state==='All States'||x.state===state)&&(riskF==='All Risk'||(riskF==='Low'&&x.risk<40)||(riskF==='Moderate'&&x.risk>=40&&x.risk<60)||(riskF==='High'&&x.risk>=60&&x.risk<80)||(riskF==='Critical'&&x.risk>=80))).sort((a,b)=>b.risk-a.risk);
+ $('rankingTable').innerHTML=list.map((x,i)=>`<tr><td>#${i+1}</td><td class="state">${x.loc}</td><td><span class="pill pill-${riskClass(x.risk)}">${x.risk}</span></td><td>${x.rain.toFixed(1)} mm</td><td>${x.risk>=60?'Action':'Monitoring'}</td></tr>`).join('')||`<tr><td colspan="5" style="text-align:center;color:var(--muted)">No data for current filter</td></tr>`;
+}
+function runHealthCheck(){
+ const status=$('h-weather'),lat=$('lat-weather');status.textContent=lastApiOk?'CONNECTED':'OFFLINE';status.className=lastApiOk?'status-live':'status-offline';lat.textContent=lastLatency?('Current request: '+lastLatency+' ms'):'No measured request';toast('Health check completed')
+}
+function exportCurrentData(kind){
+ const payload={generatedAt:new Date().toISOString(),mode:dataMode,selectedLocation:LOCATIONS[selectedIndex],weather:weatherData,incidents:incidentsV2,risk};
+ const blob=new Blob([kind==='json'?JSON.stringify(payload,null,2):'location,state,temp,humidity,wind,rain24,risk\n'+weatherData.map((d,i)=>[LOCATIONS[i].name,LOCATIONS[i].state,d.temp.toFixed(1),Math.round(d.hum),d.wind.toFixed(1),d.rain24.toFixed(1),d.risk].join(',')).join('\n')],{type:kind==='json'?'application/json':'text/csv'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ner-landslide-'+Date.now()+'.'+kind;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Export generated: '+kind.toUpperCase())
+}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openPalette()}if(e.key==='Escape'){closePalette();closeScenario();toggleNotificationDrawer(false)}});
+window.addEventListener('load',()=>{
+ initAnalyticsV2();renderIncidentTable();renderRanking();updateAnalytics();
+ const originalFetch=fetchWeather; window.fetchWeather=async function(){await originalFetch();runRankingSafe()};
+ function runRankingSafe(){if($('rankingTable')){renderRanking();updateAnalytics()};if($('opsPopulation'))$('opsPopulation').textContent=$('population')?.textContent||'33.4K';}
+});
+
+</script>
+
+
+<script id="v26-live-upgrades">
+let quakeEvents=[]; let terrainTile=null; let satelliteLayer=null; let searchedLiveLayer=null;
+const INDIA_BOUNDS_URL_BASE='https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=2.5&minlatitude=6&maxlatitude=38&minlongitude=68&maxlongitude=98&orderby=time-desc&limit=200';
+function liveIndiaQuakeUrl(){const end=new Date();const start=new Date(end.getTime()-7*86400000);return INDIA_BOUNDS_URL_BASE+'&starttime='+encodeURIComponent(start.toISOString())+'&endtime='+encodeURIComponent(end.toISOString());}
+function focusIndia(){ if(map) map.fitBounds([[6,68],[38,98]],{padding:[20,20],duration:1}); toast('India overview focused'); }
+function toggleMapFullscreen(){ const el=$('map'); if(!document.fullscreenElement){el?.requestFullscreen?.().catch(()=>toast('Fullscreen unavailable'));}else{document.exitFullscreen?.();} }
+function addTerrainLayer(){
+ if(!map)return;
+ if(!terrainTile) terrainTile=L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',{maxZoom:17,attribution:'© OpenTopoMap contributors'});
+ terrainTile.addTo(map); toast('Terrain layer enabled');
+}
+function ensureSatellite(){
+ if(!map)return;
+ if(window._baseSatellite){window._baseSatellite.addTo(map)}
+}
+async function fetchLiveEarthquakes(){
+ try{
+   const r=await fetch(liveIndiaQuakeUrl(),{cache:'no-store'}); if(!r.ok)throw new Error('quake');
+   const g=await r.json(); quakeEvents=(g.features||[]).map(f=>{const c=f.geometry.coordinates;const p=f.properties||{};return {lon:c[0],lat:c[1],depth:c[2],mag:Number(p.mag||0),place:p.place||'Unknown',time:p.time||Date.now(),url:p.url||''};});
+   $('quakeCount').textContent=String(quakeEvents.length); renderQuakeMarkers(); $('dataFreshness').textContent='LIVE';
+ }catch(e){$('quakeCount').textContent='OFFLINE';console.warn('USGS earthquake feed:',e)}
+}
+function renderQuakeMarkers(){
+ if(!map)return; if(!window.quakeLayer)window.quakeLayer=L.layerGroup(); window.quakeLayer.clearLayers();
+ quakeEvents.slice(-60).forEach(q=>{const c=q.mag>=5?'#ff6377':q.mag>=4?'#ffc85d':'#7bb8ff';const m=L.circleMarker([q.lat,q.lon],{radius:Math.max(5,4+q.mag*1.6),color:c,fillColor:c,fillOpacity:.72,weight:1.5});m.bindPopup(`<b>USGS Earthquake</b><br>${escapeChat(q.place)}<br>Magnitude <b>${q.mag.toFixed(1)}</b><br>Depth ${Number(q.depth||0).toFixed(0)} km<br>${new Date(q.time).toLocaleString()}`);m.addTo(window.quakeLayer)});
+ if(mapLayer==='quake' && !map.hasLayer(window.quakeLayer))window.quakeLayer.addTo(map);
+}
+function improveSetMapLayer(type,button){
+ setMapLayer(type,button);
+ if(window.quakeLayer){ if(type==='quake')window.quakeLayer.addTo(map); else if(map.hasLayer(window.quakeLayer))map.removeLayer(window.quakeLayer); }
+ if(type==='terrain')addTerrainLayer();
+}
+function addQuakeToggleToButtons(){document.querySelectorAll('.map-btn').forEach(b=>{const t=b.textContent.trim(); if(t==='LIVE QUAKES'||t==='TERRAIN'){b.onclick=function(){improveSetMapLayer(t==='LIVE QUAKES'?'quake':'terrain',this)}}})}
+function openDispatchDesk(){
+ $('drawerTitle')?.remove();
+ const bg=document.createElement('div');bg.className='drawer-bg show';bg.id='dispatchDynamic';bg.innerHTML=`<aside class="drawer"><div class="drawer-head"><h3>Response Dispatch Desk</h3><button class="close" onclick="document.getElementById('dispatchDynamic')?.remove()">×</button></div><div class="drawer-card"><h4>Priority</h4><p>High-risk locations should be verified before dispatch. Select a location from the current monitored set.</p></div><div class="drawer-card"><h4>Unit</h4><p>Rapid Response 03 • Rescue Unit 12 • Medical Team 04</p></div><div class="drawer-card"><h4>Action</h4><p>Dispatch request prepared as an operational UI action. Connect your backend/dispatch API to send it to real field units.</p><button class="btn btn-primary" onclick="toast('Dispatch request queued in demo workflow');document.getElementById('dispatchDynamic')?.remove()">CONFIRM DISPATCH</button></div></aside>`;document.body.appendChild(bg);
+}
+function improveRiskDisplay(){
+ const loc=selectedAnalysis?.name||lastSearchedPlace?.name||LOCATIONS[selectedIndex]?.name||'Selected location';
+ const st=selectedAnalysis?.state||lastSearchedPlace?.state||LOCATIONS[selectedIndex]?.state||'India';
+ $('riskLocation') && ($('riskLocation').textContent=`Selected analysis: ${loc}, ${st}`);
+ if($('liveMapEventText'))$('liveMapEventText').innerHTML=`<b>${escapeChat(loc)}</b>, ${escapeChat(st)} • terrain-aware analysis active`;
+ if($('liveMapScore'))$('liveMapScore').textContent=`${Number(lastSearchedPlace?.risk??risk??0)}/100`;
+}
+const _origAnalyze=analyzeMapPoint; analyzeMapPoint=async function(lat,lng,label,isLive){const r=await _origAnalyze(lat,lng,label,isLive);improveRiskDisplay();return r;};
+const _origUpdateRisk=updateRisk; updateRisk=function(){_origUpdateRisk();improveRiskDisplay();};
+const _origRenderHazardRadar=renderHazardRadar; renderHazardRadar=function(){_origRenderHazardRadar(); const q=document.querySelector('.india-note'); if(q)q.innerHTML='<b>Coverage:</b> India-wide representative landslide watchlist + fresh weather + live seismic context. This is a decision-support view, not an official warning layer.';};
+window.addEventListener('load',()=>{addQuakeToggleToButtons();fetchLiveEarthquakes();setInterval(fetchLiveEarthquakes,60000);improveRiskDisplay();});
+// Stop treating Nominatim as autocomplete: suggestion box is powered by local/common places; actual geocoding remains on submit.
+const localPlaces=[['Delhi','Delhi'],['Mumbai','Maharashtra'],['Bengaluru','Karnataka'],['Kolkata','West Bengal'],['Chennai','Tamil Nadu'],['Hyderabad','Telangana'],['Pune','Maharashtra'],['Jaipur','Rajasthan'],['Dehradun','Uttarakhand'],['Shimla','Himachal Pradesh'],['Srinagar','Jammu & Kashmir'],['Gangtok','Sikkim'],['Shillong','Meghalaya'],['Kohima','Nagaland'],['Aizawl','Mizoram'],['Tawang','Arunachal Pradesh'],['Wayanad','Kerala'],['Idukki','Kerala'],['Darjeeling','West Bengal'],['Bareilly','Uttar Pradesh'],['Moradabad','Uttar Pradesh'],['Guwahati','Assam']];
+function localSuggest(q){const box=$('searchSuggestions');if(!box||!q||q.length<2){hideSearchSuggestions();return;}const m=localPlaces.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(q.toLowerCase())).slice(0,7);if(!m.length){box.innerHTML='<div class="suggestion"><i class="fa-solid fa-magnifying-glass"></i><div><b>Press Enter to search</b><span>Geocode any Indian place with the map search service</span></div></div>';box.classList.add('show');return;}box.innerHTML=m.map((x,i)=>`<div class="suggestion" onclick="quickLocalSuggestion(${i})"><i class="fa-solid fa-location-dot"></i><div><b>${x[0]}</b><span>${x[1]}</span></div></div>`).join('');window._localSuggest=m;box.classList.add('show');}
+function quickLocalSuggestion(i){const x=window._localSuggest?.[i];if(!x)return;$('mapSearch').value=x[0]+', '+x[1];hideSearchSuggestions();searchMap();}
+const ms=$('mapSearch'); if(ms){ms.removeAttribute('oninput');ms.setAttribute('oninput','localSuggest(this.value)');}
+</script>
+
+</body></html>
